@@ -1,0 +1,51 @@
+
+
+// PARAMETERS
+
+
+// BLOCK
+.video {
+
+}
+
+.video {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+//--- ELEMENTS ----------------------------------------------------------//
+
+
+//--- MODIFIERS ----------------------------------------------------------//
+
+.video--cover {
+	/*
+	//@include translate(-50%, -50%);
+	position: absolute;
+	left: 0;
+	top: 0;
+	//bottom: 50%;
+	//right: 50%;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -1000;
+	overflow: hidden;
+	*/
+
+	position: absolute;
+	right: 0;
+	//bottom: 0;
+	top: 0; // scale from top instead
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -1;
+	//background: url(polina.jpg) no-repeat;
+	background-size: cover;
+}
+
+//--- MEDIA QUERRIES ----------------------------------------------------------//

@@ -1,0 +1,202 @@
+
+
+// PARAMETERS
+
+
+// CALCULATIONS
+$klap-logo-url: '../images/klap_logo.png';
+$klap-logo-width: image-width($klap-logo-url);
+$klap-logo-height: image-height($klap-logo-url);
+$klap-logo-ratio: $klap-logo-width / $klap-logo-height;
+
+// BLOCK
+.klap {
+  display: block;
+ 	width: 100%;
+	height: 100%;
+	background-color: $param_main-background;
+	color: $param_main-font-color;
+
+	// Hide scrollbar, but still allow scroll
+	-ms-overflow-style: none;
+	//overflow: -moz-scrollbars-none;
+	&::-webkit-scrollbar {
+		//display: none;
+		width: 0;
+		//height: 0;
+	}
+
+
+	// Make all ng-click have a pointer cursor
+	[data-ng-click],
+	[ng-click] {
+		cursor: pointer;
+	}
+}
+
+.klap,
+.klap__header,
+.klap__logo,
+.klap__menutoggle,
+.klap__overlay,
+.klap__menu {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+
+//--- ELEMENTS ----------------------------------------------------------//
+
+.klap__header {
+	display: block;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 90;
+}
+
+.klap__logo {
+	display: block;
+	position: absolute;
+	left: calc(50% - #{$klap-logo-width / 2});
+	top: 10px;
+	width: $klap-logo-width;
+	height: $klap-logo-height;
+	background-image: url($klap-logo-url);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: 50% 50%;
+	z-index: 50;
+}
+
+.klap__menutoggle {
+	display: block;
+	position: absolute;
+	right: 50px;
+	top: 65px;
+	width: 24px;
+	height: 24px;
+}
+
+.klap__overlay {
+	@include transition(opacity 300ms ease);
+	display: block;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba($color_black, 0.85);
+	z-index: -1;
+	opacity: 0;
+	overflow: auto;
+
+	// Hide scrollbar, but still allow scroll
+	-ms-overflow-style: none;
+	//overflow: -moz-scrollbars-none;
+	&::-webkit-scrollbar {
+		//display: none;
+		width: 0;
+		//height: 0;
+	}
+}
+
+.klap__menu {
+	@include transition(all 300ms ease);
+	@include fontSize(theta, 0);
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	font-family: $param_menu-font;
+	font-weight: $param_menu-font-weight;
+	text-decoration: none;
+	text-transform: uppercase;
+
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+
+	-webkit-box-align: center;
+	-webkit-flex-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+
+	-webkit-justify-content: center;
+	-moz-justify-content: center;
+	-ms-justify-content: center;
+	justify-content: center;
+
+	-webkit-box-orient: vertical;
+	-moz-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-moz-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+
+}
+
+.klap__menuitem {
+	display: block;
+	clear: both;
+	width: 100%;
+	text-align: center;
+	text-decoration: inherit;
+	& + & {
+		margin-top: 40px;
+	}
+}
+
+//--- MODIFIERS ----------------------------------------------------------//
+
+.klap__overlay--show {
+	z-index: 80;
+	opacity: 1;
+}
+
+.klap--scroll-lock {
+	overflow: hidden;
+}
+
+
+//--- MEDIA QUERRIES ----------------------------------------------------------//
+
+@include mediaQueries('x-small') {
+	.klap__logo {
+		width: 20%;
+		left: 40%;
+		height: auto;
+		padding-bottom: (20% * $klap-logo-ratio);
+	}
+	.klap__menutoggle {
+		top: 30px;
+		right: 30px;
+	}
+	.klap__menu {
+		top: 15%;
+		height: 70%;
+	}
+}
+
+@include mediaQueries('small') {
+	.klap__logo {
+		width: 20%;
+		left: 40%;
+		height: auto;
+		padding-bottom: (20% * $klap-logo-ratio);
+	}
+	.klap__menutoggle {
+		top: 30px;
+		right: 30px;
+	}
+	.klap__menu {
+		top: 15%;
+		height: 70%;
+	}
+}

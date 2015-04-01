@@ -1,0 +1,108 @@
+
+
+// PARAMETERS
+
+// BLOCK
+.splash {
+	@include fontSize(theta, 1.2);
+	//display: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	color: $color_white;
+	border-color: $color_white;
+	z-index: 1;
+	text-align: center;
+	font-family: $font_montserrat;
+	font-weight: 700;
+	background-image: url('/images/splash-mobile.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 50%;
+
+	// Flexbox
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+
+	-webkit-box-align: center;
+	-webkit-flex-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+
+	-webkit-justify-content: center;
+	-moz-justify-content: center;
+	-ms-justify-content: center;
+	justify-content: center;
+
+	-webkit-box-orient: vertical;
+	-moz-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-moz-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+.splash,
+.splash__teaser,
+.splash__button {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+//--- ELEMENTS ----------------------------------------------------------//
+
+.splash__teaser {
+	display: block;
+	width: 80%;
+}
+
+.splash__button {
+	@include noUserSelect();
+	@include fontSize(delta, 1);
+	display: block;
+	border: 2px solid;
+	border-color: inherit;
+	text-transform: uppercase;
+	padding: 20px;
+	text-align: center;
+	text-decoration: none;
+	font-weight: 400;
+	margin-top: 30px;
+	&:active {
+		opacity: 0.5;
+	}
+}
+
+//--- MODIFIERS ----------------------------------------------------------//
+
+
+//--- MEDIA QUERRIES ----------------------------------------------------------//
+
+@include mediaQueries('medium') {
+	// Landscape will target ipads as well
+	@include portrait() {
+		.splash {
+			display: none;
+		}
+	}
+}
+
+@include mediaQueries('large') {
+	.splash {
+		display: none;
+	}
+}
+
+@include mediaQueries('x-large') {
+	.splash {
+		display: none;
+	}
+}

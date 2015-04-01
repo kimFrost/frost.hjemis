@@ -1,0 +1,212 @@
+
+.tiles {
+	@include fontSize(zeta, 0);
+	width: 100%;
+	overflow: hidden;
+	z-index: 1;
+	font-family: $param_tiles_font1;
+	font-weight: $param_tiles_font1-weight;
+	text-transform: uppercase;
+}
+
+.tiles,
+.tiles__tile,
+.tiles__inner,
+.tiles__overlay,
+.tiles__overlay::before  {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+//--- ELEMENTS -------------------------------------------------------//
+
+.tiles__tile {
+	@include transition(all 300ms ease);
+	display: block;
+	float: left;
+	width: (100% / 4);
+	padding-bottom: (100% / 4 * (3 / 4));
+	overflow: hidden;
+	position: relative;
+	opacity: 1;
+	&:focus,
+	&:hover {
+		.tiles__inner {
+			//opacity: 0;
+			color: transparent;
+			font-size: 0;
+		}
+		.tiles__overlay {
+			background-color: transparent;
+			opacity: 1;
+			font-size: inherit;
+			&::before {
+				@include transform(scale(1, 1) rotate(45deg));
+				opacity: 1;
+			}
+		}
+	}
+	&:before {
+		@include transition(all 300ms ease);
+		// Effect layer
+		content: "";
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 1;
+		//z-index: 15;
+	}
+}
+
+.tiles__inner {
+	@include transition(all 300ms ease);
+	display: block;
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+
+	-webkit-box-align: center;
+	-webkit-flex-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	& + & {
+		z-index: 15;
+	}
+	& > img,
+	& > a > img {
+		width: 100%;
+		height: 100%; // To fix wrong format size
+		display: block;
+		margin: 0;
+	}
+	& > b {
+		font-family: $param_tiles_font2;
+		font-weight: $param_tiles_font2-weight;
+	}
+}
+.tiles__overlay {
+	@include transition(opacity 300ms ease, transform 300ms ease, background-color 600ms ease);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: block;
+	background-color: rgba($color_black, 0.3);
+	font-family: $param_tiles_font2;
+	font-weight: $param_tiles_font2-weight;
+	color: $color_white;
+	text-align: center;
+	z-index: 10;
+  //opacity: 0;
+	font-size: 0;
+
+  padding: 10px;
+
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+
+	-webkit-box-align: center;
+	-webkit-flex-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+
+	&::before {
+		@include transform-origin(50%, 50%);
+		@include transition(all 300ms ease);
+		@include transform(scale(0, 0) rotate(45deg));
+		content: "";
+		display: block;
+		position: absolute;
+		z-index: 1;
+		top: calc(50% - 60px);
+		left: calc(50% - 60px);
+		//top: 25%;
+		//left: 30%;
+		opacity: 0;
+		border: 3px solid $color_white;
+
+
+		padding: 60px;
+		//padding: 20%;
+
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+
+		//-webkit-transform: translate3d(-50%,-50%,0) rotate3d(0,0,1,-45deg) scale3d(0,0,1);
+		//transform: translate3d(-50%,-50%,0) rotate3d(0,0,1,-45deg) scale3d(0,0,1);
+	}
+}
+
+
+//--- MODIFIERS -------------------------------------------------------//
+
+.tiles__tile--hidden {
+	display: none;
+}
+
+
+//--- MEDIA QUERIES -------------------------------------------------------//
+
+
+@include mediaQueries('x-small') {
+	.tiles__tile {
+		width: (100% / 1);
+		padding-bottom: (100% / 1 * (3 / 4));
+		margin-bottom: $mq-gutterWidth;
+	}
+}
+
+@include mediaQueries('small') {
+	.tiles__tile {
+		width: (100% / 2);
+		padding-bottom: (100% / 2 * (3 / 4));
+	}
+}
+
+@include mediaQueries('medium') {
+	.tiles__tile {
+		width: (100% / 3);
+		padding-bottom: (100% / 3 * (3 / 4));
+	}
+}
+
+@include mediaQueries('large') {
+	.tiles__tile {
+		width: (100% / 4);
+		padding-bottom: (100% / 4 * (3 / 4));
+	}
+}
+
+

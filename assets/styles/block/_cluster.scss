@@ -1,0 +1,64 @@
+
+
+// PARAMETERS
+
+
+
+// BLOCK
+.cluster {
+	width: 100%;
+	display: block;
+	margin-bottom: -$cluster_item_spacing;
+	overflow: hidden;
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+.cluster,
+.cluster__list,
+.cluster__item,
+.cluster__inner {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+//--- ELEMENTS ----------------------------------------------------------//
+
+.cluster__list {
+
+}
+
+.cluster__item {
+
+}
+
+.cluster__inner {
+
+}
+
+
+//--- MODIFIERS ----------------------------------------------------------//
+
+
+
+//--- MEDIA QUERRIES ----------------------------------------------------------//
+
+@include mediaQueries('x-small') {
+
+}
+
+@include mediaQueries('small') {
+
+}
+
+@include mediaQueries('medium') {
+
+}
+
+@include mediaQueries('large') {
+
+}

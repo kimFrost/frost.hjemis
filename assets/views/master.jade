@@ -1,0 +1,68 @@
+doctype html
+html(data-ng-app="noerd.Hjemis.Web", lang="da")
+	head
+		title Hjem-IS
+		meta(charset="UTF-8")
+		//meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1 user-scalable=no")
+		meta(name="viewport", content="width=device-width, initial-scale=1")
+		link(rel='stylesheet', href='./css/main.css')
+		//link(rel='stylesheet', href='http://fast.fonts.net/cssapi/3b2e6dd0-e910-423a-b15e-9ccfcadb3d28.css')
+		link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Montserrat:400,700')
+		// Main app js
+		script(src="/assets/bower_components/angular/angular.js")
+		script(src="/assets/bower_components/angular-sanitize/angular-sanitize.js")
+
+		block head
+		// Fonts
+
+	body.hjemis(data-ng-controller="MainCtrl as main")
+
+
+		block body
+
+		block glovalVars
+
+		div.hjemis__logo
+
+		section.container.container--skyblue
+			div.container__content
+				div.container__inner Intro
+
+		block content
+
+		section.container.container--lightgrey
+			div.container__content
+				div.container__inner
+					div.rte Ekstra chanchen
+					form.form
+						input.form__input(type="text", placeholder="Fulde navn")
+						input.form__input(type="email", placeholder="E-mail")
+						input.form__input(type="number", placeholder="Tlf.")
+						div.checker
+							div.checker__box
+								input(type="checkbox")
+								div.checker__ui
+							div.checker__text
+								b Ja tak,
+								| til at modtage nyhedsbrev med information om hvornår Hjem-IS bilen kommer samt tilbud.
+						input.form__button(type="submit", value="Tilmeld")
+
+		section.container
+			div.container__content
+				div.container__inner Konkurrencebetingelser
+
+		section.container.container--deepsea
+			div.container__content
+				div.container__inner Footer
+					div.grid--6 Sociale medier
+					div.grid--6 Tilbud & service
+					div.grid--6.grid-xs--24.grid-s--24 Kontakt os
+						div.grid--24.grid-xs--12 Addresse
+						div.grid--24.grid-xs--12 Tlf
+						div.grid--24.grid-xs--12 Email
+					div.grid--6 Depoter
+
+
+
+		script(src="/assets/scripts/app.js")
+		script(src="/assets/scripts/controllers/main.controller.js")

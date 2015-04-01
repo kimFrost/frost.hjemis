@@ -1,0 +1,51 @@
+
+// PARAMETERS
+
+
+// BLOCK
+
+.inlinelist {
+	display: block;
+	position: relative;
+	width: 100%;
+	font-size: 0;
+	& > * {
+		display: inline-block;
+		float: none;
+		//margin-left: -6px;
+		//width: auto;
+	}
+}
+
+.inlinelist {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+//--- PLACEHOLDERS -----------------------------------------------------//
+
+
+
+
+//--- ELEMENTS -----------------------------------------------------//
+
+
+
+
+//--- MODIFIERS -----------------------------------------------------//
+
+.inlinelist--center {
+	text-align: center;
+}
+
+.inlinelist--spacing {
+	& > * {
+		& + * {
+			margin-left: 10px;
+		}
+	}
+}
+
+//--- MEDIA QUERRIES ----------------------------------------------------------//
+

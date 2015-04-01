@@ -1,0 +1,135 @@
+
+
+// PARAMETERS
+
+// BLOCK
+.wavesurfer {
+	display: block;
+	position: relative;
+
+	width: 40%;
+	margin-left: auto;
+	margin-right: auto;
+
+	// Fixes for bugs (UGLY)
+	#wave {
+		& > wave {
+			&,
+			& > canvas,
+			& > wave {
+				left: 0;
+			}
+		}
+	}
+}
+
+.wavesurfer,
+.wavesurfer__pending,
+.wavesurfer__play,
+.wavesurfer__play::before,
+.wavesurfer__pause {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+//--- ELEMENTS ----------------------------------------------------------//
+
+.wavesurfer__pending {
+	@include animation(rotate 2s linear infinite);
+	position: absolute;
+	left: calc(50% - 15px);
+	top: calc(50% - 15px);
+	text-align: center;
+	width: 30px;
+	height: 30px;
+	//background-color: $color_white;
+	border: 2px solid $color_white;
+	z-index: 10;
+}
+
+.wavesurfer__play {
+	position: absolute;
+	left: calc(50% - 15px);
+	top: calc(50% - 15px);
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	z-index: 5;
+	&::before {
+		content: "";
+		display: block;
+		position: absolute;
+		left: 25%;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		border: 15px solid transparent;
+		border-left-color: black;
+	}
+}
+
+.wavesurfer__pause {
+	position: absolute;
+	left: calc(50% - 8px);
+	top: calc(50% - 10px);
+	width: 16px;
+	height: 20px;
+	text-align: center;
+	z-index: 5;
+	&::before,
+	&::after {
+		content: "";
+		display: block;
+		position: absolute;
+		left: 0;
+		height: 100%;
+		width: 5px;
+		background-color: black;
+	}
+	&::after {
+		left: auto;
+		right: 0;
+	}
+}
+
+
+//--- MODIFIERS ----------------------------------------------------------//
+
+
+//--- MEDIA QUERRIES ----------------------------------------------------------//
+
+@include mediaQueries('x-small') {
+	.wavesurfer {
+		width: 80%;
+	}
+}
+
+@include mediaQueries('small') {
+	.wavesurfer {
+		width: 70%;
+	}
+}
+
+@include mediaQueries('medium') {
+	.wavesurfer {
+		width: 60%;
+	}
+}
+
+@include mediaQueries('large') {
+	.wavesurfer {
+		width: 50%;
+	}
+}
+
+//--- KEYFRAMES ----------------------------------------------------------//
+
+@include keyframes(rotate) {
+	0% {
+		@include rotate(0deg);
+	}
+	100% {
+		@include rotate(360deg);
+	}
+}

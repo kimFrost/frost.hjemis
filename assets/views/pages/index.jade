@@ -1,0 +1,43 @@
+extends ../master
+
+
+block append head
+
+block append body
+
+block append content
+
+	section.container
+		div.container__content(data-step="1")
+			div.container__inner
+				div.rte text
+				form.form
+					input.form__button.form__file(type="file", value="Upload foto")
+					input.form__input(type="text", placeholder="Fulde navn")
+					input.form__input(type="email", placeholder="E-mail")
+					input.form__input(type="number", placeholder="Tlf.")
+					div.checker
+						div.checker__box
+							input(type="checkbox")
+							div.checker__ui
+						div.checker__text
+							b Ja tak,
+							| til at modtage nyhedsbrev med information om hvornår Hjem-IS bilen kommer samt tilbud. (Bare rolig, hvis du allerede er tilmeldt får du ikke 2)
+					input.form__button(type="submit", value="Vis på kort hvor")
+			div.container__inner Kort
+		div.container__content(data-step="2")
+		div.container__content(data-step="3")
+
+	//section.container
+		div.container__content
+			div.container__inner
+				div.tiles
+					- for (var i = 0; i < 16; ++i) {
+						a.tiles__tile(data-ng-click="main.toggleOverlay('case', true, #{i})")
+							figcaption.tiles__overlay Watch
+							div.tiles__inner
+								img(src="http://placehold.it/450x338")
+							div.tiles__inner
+								| Madhouse
+								b Collection
+					- }

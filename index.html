@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html data-ng-app="noerd.Hjemis.Web" lang="da">
+  <head>
+    <title>Hjem-IS</title>
+    <meta charset="UTF-8">
+    <!--meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1 user-scalable=no")-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/main.css">
+    <!--link(rel='stylesheet', href='http://fast.fonts.net/cssapi/3b2e6dd0-e910-423a-b15e-9ccfcadb3d28.css')-->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <!-- Main app js-->
+    <script src="/assets/bower_components/angular/angular.js"></script>
+    <script src="/assets/bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <!-- Fonts-->
+  </head>
+  <body data-ng-controller="MainCtrl as main" class="hjemis">
+    <div class="hjemis__logo"></div>
+    <section class="container container--skyblue">
+      <div class="container__content">
+        <div class="container__inner">Intro</div>
+      </div>
+    </section>
+    <section class="container">
+      <div data-step="1" class="container__content">
+        <div class="container__inner">
+          <div class="rte">text</div>
+          <form class="form">
+            <input type="file" value="Upload foto" class="form__button form__file">
+            <input type="text" placeholder="Fulde navn" class="form__input">
+            <input type="email" placeholder="E-mail" class="form__input">
+            <input type="number" placeholder="Tlf." class="form__input">
+            <div class="checker">
+              <div class="checker__box">
+                <input type="checkbox">
+                <div class="checker__ui"></div>
+              </div>
+              <div class="checker__text"><b>Ja tak,</b>til at modtage nyhedsbrev med information om hvornår Hjem-IS bilen kommer samt tilbud. (Bare rolig, hvis du allerede er tilmeldt får du ikke 2)</div>
+            </div>
+            <input type="submit" value="Vis på kort hvor" class="form__button">
+          </form>
+        </div>
+        <div class="container__inner">Kort</div>
+      </div>
+      <div data-step="2" class="container__content"></div>
+      <div data-step="3" class="container__content"></div>
+    </section>
+    <!--section.container
+    div.container__content
+     div.container__inner
+      div.tiles
+       - for (var i = 0; i < 16; ++i) {
+        a.tiles__tile(data-ng-click="main.toggleOverlay('case', true, )")
+         figcaption.tiles__overlay Watch
+         div.tiles__inner
+          img(src="http://placehold.it/450x338")
+         div.tiles__inner
+          | Madhouse
+          b Collection
+       - }
+    -->
+    <section class="container container--lightgrey">
+      <div class="container__content">
+        <div class="container__inner">
+          <div class="rte">Ekstra chanchen</div>
+          <form class="form">
+            <input type="text" placeholder="Fulde navn" class="form__input">
+            <input type="email" placeholder="E-mail" class="form__input">
+            <input type="number" placeholder="Tlf." class="form__input">
+            <div class="checker">
+              <div class="checker__box">
+                <input type="checkbox">
+                <div class="checker__ui"></div>
+              </div>
+              <div class="checker__text"><b>Ja tak,</b>til at modtage nyhedsbrev med information om hvornår Hjem-IS bilen kommer samt tilbud.</div>
+            </div>
+            <input type="submit" value="Tilmeld" class="form__button">
+          </form>
+        </div>
+      </div>
+    </section>
+    <section class="container">
+      <div class="container__content">
+        <div class="container__inner">Konkurrencebetingelser</div>
+      </div>
+    </section>
+    <section class="container container--deepsea">
+      <div class="container__content">
+        <div class="container__inner">Footer
+          <div class="grid--6">Sociale medier</div>
+          <div class="grid--6">Tilbud & service</div>
+          <div class="grid--6 grid-xs--24 grid-s--24">Kontakt os
+            <div class="grid--24 grid-xs--12">Addresse</div>
+            <div class="grid--24 grid-xs--12">Tlf</div>
+            <div class="grid--24 grid-xs--12">Email</div>
+          </div>
+          <div class="grid--6">Depoter</div>
+        </div>
+      </div>
+    </section>
+    <script src="/assets/scripts/app.js"></script>
+    <script src="/assets/scripts/controllers/main.controller.js"></script>
+  </body>
+</html>
