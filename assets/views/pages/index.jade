@@ -12,7 +12,10 @@ block append content
 			div.container__inner
 				div.rte text
 				form.form
-					input.form__button.form__file(type="file", value="Upload foto")
+					div.form__upload
+						label Upload foto
+						input(type="file", value="Upload foto")
+					//input.form__button.form__file(type="file", value="Upload foto")
 					input.form__input(type="text", placeholder="Fulde navn")
 					input.form__input(type="email", placeholder="E-mail")
 					input.form__input(type="number", placeholder="Tlf.")

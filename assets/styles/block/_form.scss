@@ -14,6 +14,7 @@
 .form__label,
 .form__input,
 .form__button,
+.form__upload,
 .form__textarea,
 .form__select,
 .form__msg {
@@ -29,6 +30,7 @@
   @include noUserSelect();
   @include border-radius(10px 10px 10px 10px);
   display: block;
+	position: relative;
   width: 100%;
   margin: 0;
   padding: 10px;
@@ -48,6 +50,7 @@
   @include fontSize(epsilon, 1);
   @include border-radius(10px 10px 10px 10px);
   display: block;
+	position: relative;
   width: 100%;
   margin: 0;
   padding: 12px 12px;
@@ -114,14 +117,29 @@
   color: red;
 }
 
-
+.form__upload {
+	@extend %form__button;
+	& > label {
+		display: block;
+	}
+	& > input[type="file"] {
+		@include appearance(none);
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+	}
+}
 
 
 // Spacing rules
 .form__input,
 .form__textarea,
 .form__button,
-.form__select {
+.form__select,
+.form__upload {
   & + * {
     margin-top: 10px;
   }
