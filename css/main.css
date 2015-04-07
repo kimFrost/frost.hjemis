@@ -26,10 +26,43 @@ html {
 }
 
 /* line 21, ../assets/styles/block/_hjemis.scss */
-.hjemis {
+.hjemis,
+.hjemis__header,
+.hjemis__logo,
+.hjemis__headerlink {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+}
+
+/* line 33, ../assets/styles/block/_hjemis.scss */
+.hjemis__header {
+  display: block;
+  width: 100%;
+  height: 110px;
+  position: relative;
+}
+
+/* line 40, ../assets/styles/block/_hjemis.scss */
+.hjemis__logo {
+  display: block;
+  position: absolute;
+  top: -20px;
+  left: calc(50% - 92.5px);
+  width: 185px;
+  height: 134px;
+  background-image: url("../images/hjemis_logo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50% 50%;
+  z-index: 60;
+}
+
+/* line 57, ../assets/styles/block/_hjemis.scss */
+.hjemis__headerlink {
+  position: absolute;
+  right: 0;
+  top: calc(50% - 20px);
 }
 
 /* line 8, ../assets/styles/block/_container.scss */

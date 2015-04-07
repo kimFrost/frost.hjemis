@@ -18,7 +18,10 @@
 	}
 }
 
-.hjemis {
+.hjemis,
+.hjemis__header,
+.hjemis__logo,
+.hjemis__headerlink {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -26,6 +29,36 @@
 
 
 //--- ELEMENTS ----------------------------------------------------------//
+
+.hjemis__header {
+	display: block;
+	width: 100%;
+	height: 110px;
+	position: relative;
+}
+
+.hjemis__logo {
+	$url: '../images/hjemis_logo.png';
+	$width: image-width($url);
+	$height: image-height($url);
+	display: block;
+	position: absolute;
+	top: -20px;
+	left: calc(50% - #{$width / 2});
+	width: $width;
+	height: $height;
+	background-image: url($url);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: 50% 50%;
+	z-index: 60;
+}
+
+.hjemis__headerlink {
+	position: absolute;
+	right: 0;
+	top: calc(50% - 20px);
+}
 
 
 //--- MODIFIERS ----------------------------------------------------------//
