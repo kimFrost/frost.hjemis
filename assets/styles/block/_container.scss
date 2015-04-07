@@ -55,6 +55,11 @@
 	& + & {
 		margin-top: $mq-gutterWidth;
 	}
+	& > img {
+		display: block;
+		width: 100%;
+		margin: 0;
+	}
   @include onlyInDebug() {
     background-color: gold;
   }

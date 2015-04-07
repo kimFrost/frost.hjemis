@@ -22,11 +22,12 @@ $color_darkgrey: #69625d;
 
 /* FONTS */
 //$font_basic: "Verdane", "Myriad Pro", "Arial", Sans-serif;
-$font_basic: "Arial",  Sans-serif;
+$font_basic: "Myriad Pro", "Arial",  Sans-serif;
 //$font_OpenSans: 'Open Sans', $font_basic;
 $font_proxima-regular: 'Proxima N W01 Reg', $font_basic;
 $font_proxima-xbold: 'Proxima N W01 Xbold', $font_basic;
 $font_montserrat: 'Montserrat', $font_basic;
+
 
 /* COLOR & FONT PARAMETERS */
 // MAIN
@@ -34,24 +35,24 @@ $param_main-background: $color_white !default;
 $param_main-font-color: $color_darkgrey !default;
 
 // MENU
-$param_menu-font: $font_montserrat !default;
+$param_menu-font: $font_basic !default;
 $param_menu-font-weight: 700 !default;
 
 // BTN
 $param_btn-color: $color_white !default;
 $param_btn-background: $color_darkgrey;
 $param_btn-active-background: $color_white;
-$param_btn-font: $font_montserrat;
+$param_btn-font: $font_basic;
 $param_btn-font-weíght: 400;
 
 // TILES
-$param_tiles_font1: $font_montserrat;
+$param_tiles_font1: $font_basic;
 $param_tiles_font1-weight: 400;
-$param_tiles_font2: $font_montserrat;
+$param_tiles_font2: $font_basic;
 $param_tiles_font2-weight: 700;
 
 // RTE
-$param_rte-basefont: $font_montserrat;
+$param_rte-basefont: $font_basic;
 $param_rte-basefont-weight: 400;
 
 // ICON
@@ -67,13 +68,9 @@ $param_form-font: $font_basic;
 
 
 // Media Queries, Labels and Content widths
-//@include newMediaQuerie((name: mobile, min-width: 1px, max-width: 767px, contentWidth: 100%));
-//@include newMediaQuerie((name: tablet, min-width: 768px, max-width: 1024px, contentWidth: 100%));
-//@include newMediaQuerie((name: desktop, min-width: 1025px, contentWidth: 960px, default: true));
-
 @include newMediaQuerie((name: 'x-small', min-width: 1px, max-width: 569px, contentWidth: 100%, gutterWidth: 15px));
 @include newMediaQuerie((name: 'small', min-width: 570px, max-width: 969px, contentWidth: 100%, gutterWidth: 30px));
-@include newMediaQuerie((name: 'medium', min-width: 970px, max-width: 1169px, contentWidth: 100%, gutterWidth: 30px));
-@include newMediaQuerie((name: 'large', min-width: 1170px, max-width: 1500px, contentWidth: 100%, gutterWidth: 50px));
-@include newMediaQuerie((name: 'x-large', min-width: 1501px, contentWidth: 1401px, gutterWidth: 50px, default: true));
+@include newMediaQuerie((name: 'medium', min-width: 970px, max-width: 1169px, contentWidth: 960px, gutterWidth: 30px));
+@include newMediaQuerie((name: 'large', min-width: 1170px, max-width: 1500px, contentWidth: 960px, gutterWidth: 50px));
+@include newMediaQuerie((name: 'x-large', min-width: 1501px, contentWidth: 960px, gutterWidth: 50px, default: true));
 @include newMediaQuerie((name: 'all', min-width: 1px));
