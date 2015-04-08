@@ -36,8 +36,21 @@ html(data-ng-app="noerd.Hjemis.Web", lang="da")
 		section.container.container--lightgrey
 			div.container__content
 				div.container__inner
+					div.rte Se her hvornår Hjem-IS-bilen kommer forbi dig næste gang.
+					form.form.form--light
+						input.form__input(type="text", placeholder="Adresse")
+						div.form__line.form__line--2
+							input.form__input(type="number", placeholder="Husnr.")
+							input.form__input(type="number", placeholder="Postnr.")
+						div.form__line.form__line--narrow
+							input.form__button.form__button--submit(type="submit", value="Find mig")
+
+
+		section.container.container--lightgrey
+			div.container__content
+				div.container__inner
 					div.rte Ekstra chanchen
-					form.form
+					form.form.form--light
 						input.form__input(type="text", placeholder="Fulde navn")
 						input.form__input(type="email", placeholder="E-mail")
 						input.form__input(type="number", placeholder="Tlf.")
@@ -48,11 +61,15 @@ html(data-ng-app="noerd.Hjemis.Web", lang="da")
 							div.checker__text
 								b Ja tak,
 								| til at modtage nyhedsbrev med information om hvornår Hjem-IS bilen kommer samt tilbud.
-						input.form__button(type="submit", value="Tilmeld")
+
+						div.form__line.form__line--narrow
+							input.form__button.form__button--submit(type="submit", value="Tilmeld")
+
 
 		section.container
 			div.container__content
 				div.container__inner Konkurrencebetingelser
+
 
 		section.container.container--deepsea
 			div.container__content

@@ -1,16 +1,17 @@
 /* Checker module
 ---------------------------------------------------------------*/
 
-$checkerBoxWidth: 20px;
-$checkerBoxHeight: 20px;
+$checkerBoxWidth: 48px;
+$checkerBoxHeight: 48px;
 
 .checker {
   display: inline-block;
   position: relative;
-  height: $checkerBoxHeight;
-  line-height: $checkerBoxHeight;
+  //height: $checkerBoxHeight;
+  //line-height: $checkerBoxHeight;
   margin-bottom: 10px;
   min-width: $checkerBoxWidth;
+	color: $param_checker-color;
   &:after {
     content: "";
     display: block;
@@ -23,8 +24,9 @@ $checkerBoxHeight: 20px;
   width: $checkerBoxWidth;
   height: $checkerBoxHeight;
   left: 0;
-  top: 50%;
-  margin-top: -($checkerBoxWidth / 2);
+  //top: 50%;
+  top: 0;
+  //margin-top: -($checkerBoxWidth / 2);
   input[type="checkbox"] {
     @include noUserSelect();
 		position: absolute;
@@ -48,12 +50,11 @@ $checkerBoxHeight: 20px;
       &.ng-invalid {
         & + .checker__ui,
         & ~ .checker__ui {
-          background-color: $param_checker-error-color;
+          border: 1px solid $param_checker-error-color;
         }
       }
       & + .checker__ui,
       & ~ .checker__ui {
-        //border-color: $color_babyblue;
         &:after {
 
         }
@@ -64,17 +65,8 @@ $checkerBoxHeight: 20px;
       & ~ .checker__ui {
         color: $param_checker-color-checked;
         &:after {
-          content: "";
-          content: "\f00c";
-          font-family: FontAwesome;
-          position: absolute;
-          width: $checkerBoxWidth;
-          height: $checkerBoxHeight;
-          background-position: center center;
-          background-repeat: no-repeat;
-          line-height: $checkerBoxHeight;
-          text-align: center;
           color: inherit;
+					opacity: 1;
         }
       }
     }
@@ -88,19 +80,38 @@ $checkerBoxHeight: 20px;
 	top: 0;
 	width: 100%;
 	height: 100%;
-  background-color: $color_white;
+  background-color: $param_checker-background;
   color: $color_white;
-  border: 1px solid $param_checker-color;
   z-index: 5;
+	&::after {
+		content: "";
+		display: block;
+		position: absolute;
+		opacity: 0;
+		line-height: $checkerBoxHeight;
+		width: $checkerBoxWidth;
+		height: $checkerBoxHeight;
+		text-align: center;
+		background-image: url('../images/icon-checked.png');
+		background-position: center center;
+		background-repeat: no-repeat;
+	}
 }
 
 .checker__text {
-  @include fontSize(alpha, 0);
-  padding-left: $checkerBoxWidth + 5px;
-  height: $checkerBoxHeight;
-  line-height: $checkerBoxHeight;
-  white-space: nowrap;
+  //@include fontSize(alpha, 0);
+	font-size: inherit;
+  padding-left: $checkerBoxWidth + 30px;
+  //height: $checkerBoxHeight;
+  //line-height: $checkerBoxHeight;
+  //white-space: nowrap;
   & > a {
     text-decoration: underline;
   }
+}
+
+
+
+.checker--light {
+
 }

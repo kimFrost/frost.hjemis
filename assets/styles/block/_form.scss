@@ -4,6 +4,7 @@
 
 // BLOCK
 .form {
+	@include fontSize(eta, 0);
   display: block;
   width: 100%;
   font-family: $param_form-font;
@@ -26,17 +27,17 @@
 //--- PLACEHOLDERS ----------------------------------------------------------//
 
 %form__input {
-  @include fontSize(delta, 1.2);
+  @include fontSize(eta, 1.2);
   @include noUserSelect();
-  @include border-radius(10px 10px 10px 10px);
   display: block;
 	position: relative;
   width: 100%;
   margin: 0;
-  padding: 10px;
-  background-color: $color_white;
+  padding: 18px 16px;
+  background-color: $param_form-input-background;
+  color: $param_form-input-color;
   outline: none;
-  border: 1px solid $color_darkgrey;
+	border: none;
   font-family: inherit;
   &.ng-invalid-required {
     &.ng-dirty {
@@ -47,40 +48,25 @@
 
 %form__button {
   @include noUserSelect();
-  @include fontSize(epsilon, 1);
-  @include border-radius(10px 10px 10px 10px);
+  @include fontSize(eta, 1);
   display: block;
 	position: relative;
   width: 100%;
-  margin: 0;
-  padding: 12px 12px;
-  min-width: 170px;
-  background-color: $color_black;
-  color: $color_white;
+	padding: 18px 16px;
+	margin: 0 auto;
+  background-color: $param_form-button-background;
+  color: $param_form-button-color;
   border: none;
   outline: none;
   text-rendering: optimizelegibility;
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: $param_form-button-font-weight;
   text-decoration: none;
   font-family: inherit;
+	text-align: center;
 }
 
 //--- ELEMENTS ----------------------------------------------------------//
-
-.form__line {
-  display: block;
-  width: 100%;
-  & + & {
-    margin-top: 14px;
-  }
-  .form__input {
-
-    & + .form__input {
-      margin-top: 5px;
-    }
-  }
-}
 
 .form__label {
   display: block;
@@ -119,8 +105,13 @@
 
 .form__upload {
 	@extend %form__button;
+	padding-top: 4px;
+	padding-bottom: 8px;
 	& > label {
-		display: block;
+		display: inline-block;
+		& + img {
+			margin-left: 20px;
+		}
 	}
 	& > input[type="file"] {
 		@include appearance(none);
@@ -131,6 +122,17 @@
 		height: 100%;
 		opacity: 0;
 	}
+	& > img {
+		display: inline-block;
+		margin: 0;
+	}
+}
+
+.form__line {
+	display: block;
+	position: relative;
+	width: 100%;
+	clear: both;
 }
 
 
@@ -139,13 +141,26 @@
 .form__textarea,
 .form__button,
 .form__select,
-.form__upload {
+.form__upload,
+.form__line {
   & + * {
-    margin-top: 10px;
+    margin-top: 20px;
   }
 }
 
 //--- MODIFIERS ----------------------------------------------------------//
+
+.form--light {
+	%form__input {
+		background-color: $color_white;
+	}
+}
+
+.form__button--submit {
+	background-color: $param_form-submit-background;
+	color: $param_form-submit-color;
+}
+
 
 .form__line--2 {
   &:after {
@@ -153,16 +168,25 @@
     display: block;
     clear: both;
   }
-  .form__input {
-    width: calc(50% - 7px);
-    margin-right: 7px;
+	%form__input,
+	%form__button {
+    width: calc(50% - 15px);
+    margin-right: 15px;
     float: left;
     & + .form__input {
       margin-top: 0;
       margin-right: 0;
-      margin-left: 7px;
+      margin-left: 15px;
     }
   }
 }
+
+.form__line--narrow {
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
 
 //--- MEDIA QUERRIES ----------------------------------------------------------//

@@ -1,0 +1,50 @@
+
+
+// PARAMETERS
+
+
+// BLOCK
+.banner {
+  display: block;
+ 	width: 100%;
+}
+
+.banner {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+
+//--- ELEMENTS ----------------------------------------------------------//
+
+
+//--- MODIFIERS ----------------------------------------------------------//
+
+.banner--gribmobilen {
+	$url: '../images/banner-gribmobilen.png';
+	background-image: url($url);
+}
+
+.banner--ekstrachancen {
+	$url: '../images/banner--ekstrachancen.png';
+	background-image: url($url);
+}
+
+.banner--ekstralod {
+	$url: '../images/banner--ekstralod.png';
+	background-image: url($url);
+}
+
+.banner--betingelser {
+	$url: '../images/banner--betingelser.png';
+	background-image: url($url);
+}
+
+.banner--seandres {
+	$url: '../images/banner--seandres.png';
+	background-image: url($url);
+}
+
+//--- MEDIA QUERRIES ----------------------------------------------------------//
+

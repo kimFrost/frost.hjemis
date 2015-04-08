@@ -27,11 +27,12 @@
         <div class="container__inner">
           <div class="rte">text</div>
           <form class="form">
-            <div class="form__upload">
-              <label>Upload foto</label>
-              <input type="file" value="Upload foto">
+            <div class="form__line form__line--narrow">
+              <div class="form__upload">
+                <label>Upload foto</label><img src="/images/icon-camera.png">
+                <input type="file" value="Upload foto">
+              </div>
             </div>
-            <!--input.form__button.form__file(type="file", value="Upload foto")-->
             <input type="text" placeholder="Fulde navn" class="form__input">
             <input type="email" placeholder="E-mail" class="form__input">
             <input type="number" placeholder="Tlf." class="form__input">
@@ -42,7 +43,9 @@
               </div>
               <div class="checker__text"><b>Ja tak,</b>til at modtage nyhedsbrev med information om hvornår Hjem-IS bilen kommer samt tilbud. (Bare rolig, hvis du allerede er tilmeldt får du ikke 2)</div>
             </div>
-            <input type="submit" value="Vis på kort hvor" class="form__button">
+            <div class="form__line form__line--narrow">
+              <input type="submit" value="Vis på kort hvor" class="form__button form__button--submit">
+            </div>
           </form>
         </div>
         <div class="container__inner">Kort</div>
@@ -67,8 +70,25 @@
     <section class="container container--lightgrey">
       <div class="container__content">
         <div class="container__inner">
+          <div class="rte">Se her hvornår Hjem-IS-bilen kommer forbi dig næste gang.</div>
+          <form class="form form--light">
+            <input type="text" placeholder="Adresse" class="form__input">
+            <div class="form__line form__line--2">
+              <input type="number" placeholder="Husnr." class="form__input">
+              <input type="number" placeholder="Postnr." class="form__input">
+            </div>
+            <div class="form__line form__line--narrow">
+              <input type="submit" value="Find mig" class="form__button form__button--submit">
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <section class="container container--lightgrey">
+      <div class="container__content">
+        <div class="container__inner">
           <div class="rte">Ekstra chanchen</div>
-          <form class="form">
+          <form class="form form--light">
             <input type="text" placeholder="Fulde navn" class="form__input">
             <input type="email" placeholder="E-mail" class="form__input">
             <input type="number" placeholder="Tlf." class="form__input">
@@ -79,7 +99,9 @@
               </div>
               <div class="checker__text"><b>Ja tak,</b>til at modtage nyhedsbrev med information om hvornår Hjem-IS bilen kommer samt tilbud.</div>
             </div>
-            <input type="submit" value="Tilmeld" class="form__button">
+            <div class="form__line form__line--narrow">
+              <input type="submit" value="Tilmeld" class="form__button form__button--submit">
+            </div>
           </form>
         </div>
       </div>

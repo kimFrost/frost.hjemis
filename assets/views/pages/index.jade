@@ -12,10 +12,11 @@ block append content
 			div.container__inner
 				div.rte text
 				form.form
-					div.form__upload
-						label Upload foto
-						input(type="file", value="Upload foto")
-					//input.form__button.form__file(type="file", value="Upload foto")
+					div.form__line.form__line--narrow
+						div.form__upload
+							label Upload foto
+							img(src="/images/icon-camera.png")
+							input(type="file", value="Upload foto")
 					input.form__input(type="text", placeholder="Fulde navn")
 					input.form__input(type="email", placeholder="E-mail")
 					input.form__input(type="number", placeholder="Tlf.")
@@ -26,7 +27,8 @@ block append content
 						div.checker__text
 							b Ja tak,
 							| til at modtage nyhedsbrev med information om hvornår Hjem-IS bilen kommer samt tilbud. (Bare rolig, hvis du allerede er tilmeldt får du ikke 2)
-					input.form__button(type="submit", value="Vis på kort hvor")
+					div.form__line.form__line--narrow
+						input.form__button.form__button--submit(type="submit", value="Vis på kort hvor")
 			div.container__inner Kort
 		div.container__content(data-step="2")
 		div.container__content(data-step="3")

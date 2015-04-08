@@ -59,12 +59,20 @@ $param_rte-basefont-weight: 400;
 $param_icon-background: $color_darkgrey !default;
 
 // CHECKER
-$param_checker-color: $color_white;
+$param_checker-color: $color_deepsea;
 $param_checker-color-checked: $color_black;
 $param_checker-error-color: red;
+$param_checker-background: $color_lightgrey;
 
 // FORM
 $param_form-font: $font_basic;
+$param_form-input-background: $color_lightgrey;
+$param_form-input-color: $color_darkgrey;
+$param_form-button-background: $color_midgrey;
+$param_form-button-color: $color_white;
+$param_form-button-font-weight: 700;
+$param_form-submit-background: $color_skyblue;
+$param_form-submit-color: $color_white;
 
 
 // Media Queries, Labels and Content widths

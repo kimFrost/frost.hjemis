@@ -1008,28 +1008,26 @@ html {
 .checker {
   display: inline-block;
   position: relative;
-  height: 20px;
-  line-height: 20px;
   margin-bottom: 10px;
-  min-width: 20px;
+  min-width: 48px;
+  color: #10223e;
 }
-/* line 14, ../assets/styles/block/_checker.scss */
+/* line 15, ../assets/styles/block/_checker.scss */
 .checker:after {
   content: "";
   display: block;
   clear: both;
 }
 
-/* line 21, ../assets/styles/block/_checker.scss */
+/* line 22, ../assets/styles/block/_checker.scss */
 .checker__box {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 48px;
+  height: 48px;
   left: 0;
-  top: 50%;
-  margin-top: -10px;
+  top: 0;
 }
-/* line 28, ../assets/styles/block/_checker.scss */
+/* line 30, ../assets/styles/block/_checker.scss */
 .checker__box input[type="checkbox"] {
   user-select: none;
   -webkit-user-select: none;
@@ -1047,37 +1045,28 @@ html {
   z-index: 10 !important;
   border: none !important;
   background: none !important;
-  width: 20px !important;
-  height: 20px !important;
+  width: 48px !important;
+  height: 48px !important;
   outline: 0;
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
 }
-/* line 49, ../assets/styles/block/_checker.scss */
+/* line 51, ../assets/styles/block/_checker.scss */
 .checker__box input[type="checkbox"].ng-dirty.ng-invalid + .checker__ui, .checker__box input[type="checkbox"].ng-dirty.ng-invalid ~ .checker__ui {
-  background-color: red;
+  border: 1px solid red;
 }
-/* line 63, ../assets/styles/block/_checker.scss */
+/* line 64, ../assets/styles/block/_checker.scss */
 .checker__box input[type="checkbox"]:checked + .checker__ui, .checker__box input[type="checkbox"]:checked ~ .checker__ui {
   color: #000000;
 }
-/* line 66, ../assets/styles/block/_checker.scss */
+/* line 67, ../assets/styles/block/_checker.scss */
 .checker__box input[type="checkbox"]:checked + .checker__ui:after, .checker__box input[type="checkbox"]:checked ~ .checker__ui:after {
-  content: "";
-  content: "\f00c";
-  font-family: FontAwesome;
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background-position: center center;
-  background-repeat: no-repeat;
-  line-height: 20px;
-  text-align: center;
   color: inherit;
+  opacity: 1;
 }
 
-/* line 84, ../assets/styles/block/_checker.scss */
+/* line 76, ../assets/styles/block/_checker.scss */
 .checker__ui {
   user-select: none;
   -webkit-user-select: none;
@@ -1089,25 +1078,31 @@ html {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: #ffffff;
+  background-color: #ededed;
   color: #ffffff;
-  border: 1px solid #ffffff;
   z-index: 5;
 }
+/* line 86, ../assets/styles/block/_checker.scss */
+.checker__ui::after {
+  content: "";
+  display: block;
+  position: absolute;
+  opacity: 0;
+  line-height: 48px;
+  width: 48px;
+  height: 48px;
+  text-align: center;
+  background-image: url("../images/icon-checked.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+}
 
-/* line 97, ../assets/styles/block/_checker.scss */
+/* line 101, ../assets/styles/block/_checker.scss */
 .checker__text {
-  padding-left: 25px;
-  height: 20px;
-  line-height: 20px;
-  white-space: nowrap;
+  font-size: inherit;
+  padding-left: 78px;
 }
-/* line 42, ../assets/styles/global/_global_fonts.scss */
-.checker__text {
-  font-size: 11px;
-  font-size: 0.6111111111rem;
-}
-/* line 103, ../assets/styles/block/_checker.scss */
+/* line 108, ../assets/styles/block/_checker.scss */
 .checker__text > a {
   text-decoration: underline;
 }
@@ -1118,8 +1113,13 @@ html {
   width: 100%;
   font-family: "Myriad Pro", "Arial", Sans-serif;
 }
+/* line 42, ../assets/styles/global/_global_fonts.scss */
+.form {
+  font-size: 24px;
+  font-size: 1.3333333333rem;
+}
 
-/* line 12, ../assets/styles/block/_form.scss */
+/* line 13, ../assets/styles/block/_form.scss */
 .form,
 .form__line,
 .form__label,
@@ -1134,93 +1134,74 @@ html {
   -webkit-box-sizing: border-box;
 }
 
-/* line 28, ../assets/styles/block/_form.scss */
+/* line 29, ../assets/styles/block/_form.scss */
 .form__input, .form__textarea, .form__select {
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   -o-user-select: none;
-  -moz-border-radius: 10px 10px 10px 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px 10px 10px 10px;
   display: block;
   position: relative;
   width: 100%;
   margin: 0;
-  padding: 10px;
-  background-color: #ffffff;
+  padding: 18px 16px;
+  background-color: #ededed;
+  color: #69625d;
   outline: none;
-  border: 1px solid #69625d;
+  border: none;
   font-family: inherit;
 }
 /* line 42, ../assets/styles/global/_global_fonts.scss */
 .form__input, .form__textarea, .form__select {
-  font-size: 16px;
-  font-size: 0.8888888889rem;
-  line-height: 19.2px;
-  line-height: 1.0666666667rem;
+  font-size: 24px;
+  font-size: 1.3333333333rem;
+  line-height: 28.8px;
+  line-height: 1.6rem;
 }
-/* line 42, ../assets/styles/block/_form.scss */
+/* line 43, ../assets/styles/block/_form.scss */
 .ng-invalid-required.ng-dirty.form__input, .ng-invalid-required.ng-dirty.form__textarea, .ng-invalid-required.ng-dirty.form__select {
   border: 1px solid red;
 }
 
-/* line 48, ../assets/styles/block/_form.scss */
+/* line 49, ../assets/styles/block/_form.scss */
 .form__button, .form__upload {
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   -o-user-select: none;
-  -moz-border-radius: 10px 10px 10px 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px 10px 10px 10px;
   display: block;
   position: relative;
   width: 100%;
-  margin: 0;
-  padding: 12px 12px;
-  min-width: 170px;
-  background-color: #000000;
+  padding: 18px 16px;
+  margin: 0 auto;
+  background-color: #c0bebc;
   color: #ffffff;
   border: none;
   outline: none;
   text-rendering: optimizelegibility;
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: 700;
   text-decoration: none;
   font-family: inherit;
+  text-align: center;
 }
 /* line 42, ../assets/styles/global/_global_fonts.scss */
 .form__button, .form__upload {
-  font-size: 18px;
-  font-size: 1rem;
-  line-height: 18px;
-  line-height: 1rem;
+  font-size: 24px;
+  font-size: 1.3333333333rem;
+  line-height: 24px;
+  line-height: 1.3333333333rem;
 }
 
 /* line 71, ../assets/styles/block/_form.scss */
-.form__line {
-  display: block;
-  width: 100%;
-}
-/* line 74, ../assets/styles/block/_form.scss */
-.form__line + .form__line {
-  margin-top: 14px;
-}
-/* line 79, ../assets/styles/block/_form.scss */
-.form__line .form__input + .form__input {
-  margin-top: 5px;
-}
-
-/* line 85, ../assets/styles/block/_form.scss */
 .form__label {
   display: block;
   width: 100%;
 }
 
-/* line 94, ../assets/styles/block/_form.scss */
+/* line 80, ../assets/styles/block/_form.scss */
 .form__textarea {
   min-height: 350px;
 }
@@ -1232,7 +1213,7 @@ html {
   line-height: 1.6rem;
 }
 
-/* line 110, ../assets/styles/block/_form.scss */
+/* line 96, ../assets/styles/block/_form.scss */
 .form__msg {
   -moz-transform: translate(0, 3px);
   -ms-transform: translate(0, 3px);
@@ -1252,11 +1233,20 @@ html {
   line-height: 0.6666666667rem;
 }
 
-/* line 122, ../assets/styles/block/_form.scss */
-.form__upload > label {
-  display: block;
+/* line 106, ../assets/styles/block/_form.scss */
+.form__upload {
+  padding-top: 4px;
+  padding-bottom: 8px;
 }
-/* line 125, ../assets/styles/block/_form.scss */
+/* line 110, ../assets/styles/block/_form.scss */
+.form__upload > label {
+  display: inline-block;
+}
+/* line 112, ../assets/styles/block/_form.scss */
+.form__upload > label + img {
+  margin-left: 20px;
+}
+/* line 116, ../assets/styles/block/_form.scss */
 .form__upload > input[type="file"] {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -1267,33 +1257,107 @@ html {
   height: 100%;
   opacity: 0;
 }
+/* line 125, ../assets/styles/block/_form.scss */
+.form__upload > img {
+  display: inline-block;
+  margin: 0;
+}
 
-/* line 143, ../assets/styles/block/_form.scss */
+/* line 131, ../assets/styles/block/_form.scss */
+.form__line {
+  display: block;
+  position: relative;
+  width: 100%;
+  clear: both;
+}
+
+/* line 146, ../assets/styles/block/_form.scss */
 .form__input + *,
 .form__textarea + *,
 .form__button + *,
 .form__select + *,
-.form__upload + * {
-  margin-top: 10px;
+.form__upload + *,
+.form__line + * {
+  margin-top: 20px;
 }
 
-/* line 151, ../assets/styles/block/_form.scss */
+/* line 154, ../assets/styles/block/_form.scss */
+.form--light .form__input, .form--light .form__textarea, .form--light .form__select {
+  background-color: #ffffff;
+}
+
+/* line 159, ../assets/styles/block/_form.scss */
+.form__button--submit {
+  background-color: #add8ee;
+  color: #ffffff;
+}
+
+/* line 166, ../assets/styles/block/_form.scss */
 .form__line--2:after {
   content: "";
   display: block;
   clear: both;
 }
-/* line 156, ../assets/styles/block/_form.scss */
-.form__line--2 .form__input {
-  width: calc(50% - 7px);
-  margin-right: 7px;
+/* line 171, ../assets/styles/block/_form.scss */
+.form__line--2 .form__input, .form__line--2 .form__textarea, .form__line--2 .form__select,
+.form__line--2 .form__button,
+.form__line--2 .form__upload {
+  width: calc(50% - 15px);
+  margin-right: 15px;
   float: left;
 }
-/* line 160, ../assets/styles/block/_form.scss */
-.form__line--2 .form__input + .form__input {
+/* line 176, ../assets/styles/block/_form.scss */
+.form__line--2 .form__input + .form__input, .form__line--2 .form__textarea + .form__input, .form__line--2 .form__select + .form__input,
+.form__line--2 .form__button + .form__input,
+.form__line--2 .form__upload + .form__input {
   margin-top: 0;
   margin-right: 0;
-  margin-left: 7px;
+  margin-left: 15px;
+}
+
+/* line 184, ../assets/styles/block/_form.scss */
+.form__line--narrow {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 7, ../assets/styles/block/_banner.scss */
+.banner {
+  display: block;
+  width: 100%;
+}
+
+/* line 12, ../assets/styles/block/_banner.scss */
+.banner {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+/* line 24, ../assets/styles/block/_banner.scss */
+.banner--gribmobilen {
+  background-image: url("../images/banner-gribmobilen.png");
+}
+
+/* line 29, ../assets/styles/block/_banner.scss */
+.banner--ekstrachancen {
+  background-image: url("../images/banner--ekstrachancen.png");
+}
+
+/* line 34, ../assets/styles/block/_banner.scss */
+.banner--ekstralod {
+  background-image: url("../images/banner--ekstralod.png");
+}
+
+/* line 39, ../assets/styles/block/_banner.scss */
+.banner--betingelser {
+  background-image: url("../images/banner--betingelser.png");
+}
+
+/* line 44, ../assets/styles/block/_banner.scss */
+.banner--seandres {
+  background-image: url("../images/banner--seandres.png");
 }
 
 /* ==========================================================================
