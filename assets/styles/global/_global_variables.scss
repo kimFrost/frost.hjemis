@@ -77,8 +77,6 @@ $param_form-submit-color: $color_white;
 
 // Media Queries, Labels and Content widths
 @include newMediaQuerie((name: 'x-small', min-width: 1px, max-width: 569px, contentWidth: 100%, gutterWidth: 15px));
-@include newMediaQuerie((name: 'small', min-width: 570px, max-width: 969px, contentWidth: 100%, gutterWidth: 30px));
-@include newMediaQuerie((name: 'medium', min-width: 970px, max-width: 1169px, contentWidth: 960px, gutterWidth: 30px));
-@include newMediaQuerie((name: 'large', min-width: 1170px, max-width: 1500px, contentWidth: 960px, gutterWidth: 50px));
-@include newMediaQuerie((name: 'x-large', min-width: 1501px, contentWidth: 960px, gutterWidth: 50px, default: true));
+@include newMediaQuerie((name: 'small', min-width: 570px, max-width: 1099px, contentWidth: 100%, gutterWidth: 30px));
+@include newMediaQuerie((name: 'medium', min-width: 1100px, contentWidth: 960px, gutterWidth: 50px, default: true));
 @include newMediaQuerie((name: 'all', min-width: 1px));

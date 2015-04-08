@@ -10,8 +10,10 @@
   width: 100%;
   padding-right: $mq-gutterWidth;
   padding-left: $mq-gutterWidth;
-  //padding-top: 20px;
-  //padding-bottom: 20px;
+
+  padding-top: 80px;
+  padding-bottom: 80px;
+
   position: relative;
   opacity: 1;
   @include onlyInDebug() {
@@ -107,6 +109,24 @@
 	padding-top: 190px;
 }
 
+.container--nogutter {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.container--ridge {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.container--ridgetop {
+	padding-top: 0;
+}
+
+.container--ridgebottom {
+	padding-bottom: 0;
+}
+
 .container__content--center {
   display: -webkit-box;
   display: -moz-box;
@@ -145,6 +165,16 @@
 	.container {
 		padding-right: $mq-gutterWidth;
 		padding-left: $mq-gutterWidth;
+
+		&:not(.container--ridge) {
+			&:not(.container--ridgetop) {
+				padding-top: 40px;
+			}
+			&:not(.container--ridgebottom) {
+				padding-bottom: 40px;
+			}
+		}
+
 		&:last-of-type {
 			//margin-bottom: $mq-gutterWidth;
 		}

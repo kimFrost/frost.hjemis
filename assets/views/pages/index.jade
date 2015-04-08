@@ -10,14 +10,24 @@ block append content
 	section.container
 		div.container__content(data-step="1")
 			div.container__inner
-				div.rte text
+				div.rte
+					p
+						| De blå Hjem-IS biler er på vejene over hele landet.
+						br
+						| Grib din mobiltelefon, tag et pletskud af Hjem-IS bilen og upload det her. Så er du med i konkurrencen om en Citroën C1 samt MBK og Raleigh cykler fra
+						br
+						| Dania Bikes. Deltagelse er betinget af, at du tilmelder dig nyhedsbrevet.
+						br
+						| Du kan deltage med et foto per mailadresse.
+				div.spacer
 				form.form
 					div.form__line.form__line--narrow
 						div.form__upload
 							label Upload foto
 							img(src="/images/icon-camera.png")
 							input(type="file", value="Upload foto")
-					input.form__input(type="text", placeholder="Fulde navn")
+					input.form__input(type="text", placeholder="Fornavn")
+					input.form__input(type="text", placeholder="Efternavn")
 					input.form__input(type="email", placeholder="E-mail")
 					input.form__input(type="number", placeholder="Tlf.")
 					div.checker
@@ -25,11 +35,12 @@ block append content
 							input(type="checkbox")
 							div.checker__ui
 						div.checker__text
-							b Ja tak,
-							| til at modtage nyhedsbrev med information om hvornår Hjem-IS bilen kommer samt tilbud. (Bare rolig, hvis du allerede er tilmeldt får du ikke 2)
+							b JA TAK.
+							|  Jeg ønsker at deltage i konkurrencen samt modtage nyhedsbrev fra Hjem-IS med tilbud, nyheder mm.
+							br
+							| (Bare rolig, hvis du allerede er tilmeldt får du ikke 2)
 					div.form__line.form__line--narrow
-						input.form__button.form__button--submit(type="submit", value="Vis på kort hvor")
-			div.container__inner Kort
+						input.form__button.form__button--submit(type="submit", value="Deltag")
 		div.container__content(data-step="2")
 		div.container__content(data-step="3")
 

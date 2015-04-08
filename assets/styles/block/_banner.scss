@@ -1,12 +1,24 @@
 
 
 // PARAMETERS
-
+$banners: (
+	'gribmobilen': '../images/banner-gribmobilen.png',
+	'ekstrachancen': '../images/banner-ekstrachancen.png',
+	'ekstralod': '../images/banner-ekstralod.png',
+	'betingelser': '../images/banner-betingelser.png',
+	'seandres': '../images/banner-seandres.png',
+	'hvornaer': '../images/banner-hvornaer.png'
+);
 
 // BLOCK
 .banner {
   display: block;
  	width: 100%;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: 50% 50%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .banner {
@@ -21,30 +33,56 @@
 
 //--- MODIFIERS ----------------------------------------------------------//
 
-.banner--gribmobilen {
-	$url: '../images/banner-gribmobilen.png';
-	background-image: url($url);
+.banner--pull {
+	position: absolute;
 }
 
-.banner--ekstrachancen {
-	$url: '../images/banner--ekstrachancen.png';
-	background-image: url($url);
-}
-
-.banner--ekstralod {
-	$url: '../images/banner--ekstralod.png';
-	background-image: url($url);
-}
-
-.banner--betingelser {
-	$url: '../images/banner--betingelser.png';
-	background-image: url($url);
-}
-
-.banner--seandres {
-	$url: '../images/banner--seandres.png';
-	background-image: url($url);
+@each $name, $url in $banners {
+	.banner--#{$name} {
+		$width: image-width($url);
+		$height: image-height($url);
+		$ratio: $width / $height;
+		background-image: url($url);
+		width: $width;
+		//padding-bottom: (100% / $ratio * 1);
+		padding-bottom: $height;
+		&.banner--pull {
+			left: calc(50% - #{$width / 2});
+			top: -#{$height * 0.65}
+		}
+	}
 }
 
 //--- MEDIA QUERRIES ----------------------------------------------------------//
 
+@include mediaQueries('x-small') {
+	@each $name, $url in $banners {
+		.banner--#{$name} {
+			$width: image-width($url);
+			$height: image-height($url);
+			$ratio: $width / $height;
+			width: #{$width / 2};
+			padding-bottom: #{$height / 2};
+			&.banner--pull {
+				left: calc(50% - #{$width / 4});
+				top: -#{$height * 0.5 * 0.65}
+			}
+		}
+	}
+}
+
+@include mediaQueries('small') {
+	@each $name, $url in $banners {
+		.banner--#{$name} {
+			$width: image-width($url);
+			$height: image-height($url);
+			$ratio: $width / $height;
+			width: #{$width * 0.75};
+			padding-bottom: #{$height * 0.75};
+			&.banner--pull {
+				left: calc(50% - #{$width / 3});
+				top: -#{$height * 0.75 * 0.65}
+			}
+		}
+	}
+}

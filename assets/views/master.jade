@@ -23,7 +23,7 @@ html(data-ng-app="noerd.Hjemis.Web", lang="da")
 		block glovalVars
 
 
-		section.container.container--skyblue
+		section.container.container--skyblue.container--ridgetop
 			div.container__content
 				header.hjemis__header
 					div.hjemis__logo
@@ -31,25 +31,61 @@ html(data-ng-app="noerd.Hjemis.Web", lang="da")
 				div.container__inner
 					img(src="/images/hjemis_intro.png")
 
+		section.container.container--ridge
+			div.container__content
+				div.banner.banner--gribmobilen.banner--pull
+
 		block content
+
+		section.container.container--ridge
+			div.container__content
+				div.banner.banner--hvornaer.banner--pull
+
 
 		section.container.container--lightgrey
 			div.container__content
 				div.container__inner
-					div.rte Se her hvornår Hjem-IS-bilen kommer forbi dig næste gang.
+					div.rte
+						img(src="/images/hjemisbilen.png")
+						p Se her hvornår Hjem-IS-bilen kommer forbi dig næste gang.
+					div.spacer
 					form.form.form--light
 						input.form__input(type="text", placeholder="Adresse")
 						div.form__line.form__line--2
 							input.form__input(type="number", placeholder="Husnr.")
 							input.form__input(type="number", placeholder="Postnr.")
+						div.spacer
 						div.form__line.form__line--narrow
 							input.form__button.form__button--submit(type="submit", value="Find mig")
 
+		section.container
+			div.container__content
+				div.container__inner
+					div.banner.banner--seandres
+					div map
+
+
+		section.container.container--ridge
+			div.container__content
+				div.banner.banner--ekstrachancen.banner--pull
 
 		section.container.container--lightgrey
 			div.container__content
 				div.container__inner
-					div.rte Ekstra chanchen
+					div.rte
+						p
+							| Fik du ikke fotograferet Hjem-IS bilen, kan du stadig vinde. Eneste betingelse er, at du tilmelder dig vores nyhedsbrev her,
+							br
+							| så er du med i lodtrækningen om:
+							br
+							| - 2 x 2 voksen billetter til LEGOLAND værdi 329,- pr. stk.
+							br
+							| - 6 x store familiepakker fra Hjem-IS  værdi af 289,- kr.
+							br
+							| - 1 x Brunch for 2, værdi 249,-
+							br
+							| - 1 x Bio for 2, værdi 269,-
+					div.spacer
 					form.form.form--light
 						input.form__input(type="text", placeholder="Fulde navn")
 						input.form__input(type="email", placeholder="E-mail")
@@ -59,21 +95,57 @@ html(data-ng-app="noerd.Hjemis.Web", lang="da")
 								input(type="checkbox")
 								div.checker__ui
 							div.checker__text
-								b Ja tak,
-								| til at modtage nyhedsbrev med information om hvornår Hjem-IS bilen kommer samt tilbud.
+								b JA TAK.
+								|  Jeg ønsker at deltage i konkurrencen samt modtage nyhedsbrev fra Hjem-IS med tilbud, nyheder mm.
 
 						div.form__line.form__line--narrow
 							input.form__button.form__button--submit(type="submit", value="Tilmeld")
 
 
+
 		section.container
 			div.container__content
-				div.container__inner Konkurrencebetingelser
-
+				div.container__inner
+					div.banner.banner--betingelser
+					div.spacer
+					div.rte
+						p Konkurrenceperiode d. 27/4 - 7/6/2015.
+						p
+							| Førstepræmie: 5-dørs Citroën C1 Airscape med aircondition, stop&Start,
+							br
+							| 6 airbags, ratbetjent radio med bluetooth og USB-indgang, el-sideruder foran, LED-lys, nakkestøtter bag samt højdejusterbart førersæde til en værdi af 99.990 kr.
+							br
+							| Præmien kan ikke ombyttes til kontanter eller andre biler.
+						p
+							| Vinderen overraskes med præmien en søndag i juni 2015.
+							br
+							| Vinderne af de øvrige præmier findes ved lodtrækning
+							br
+							| og får direkte besked pr. mail.
+						p
+							| 2. præmie: Voksencykler af mærket Raleigh og børnecykler af mærket MBK
+							br
+							| – flere varianter at vælge mellem.
+						p
+							| Præmien kan afhentes hos Dania Bikes (læs mere på daniabikes.com)
+							br
+							| og har en værdi af 16.100 kr. per vinder.  
+							br
+							| Præmien kan ikke ombyttes til kontanter. 
+						p
+							| Deltagelse er betinget af, at du tilmelder dig nyhedsbrevet.
+							br
+							| Hjem-IS forbeholder sig ret til at bruge alle de uploadede fotos i
+							br
+							| markedsføringsmæssig sammenhæng.
+							br
+							| Konkurrencen er ikke sponseret eller administreret af Facebook.
+						p
+							img(src="/images/logo-dania.png")
 
 		section.container.container--deepsea
 			div.container__content
-				div.container__inner Footer
+				div.container__inner
 					div.grid--6 Sociale medier
 					div.grid--6 Tilbud & service
 					div.grid--6.grid-xs--24.grid-s--24 Kontakt os
