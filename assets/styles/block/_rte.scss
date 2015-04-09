@@ -4,7 +4,7 @@
 
 // BLOCK
 .rte {
-  @include fontSize(delta, 1.3);
+  @include fontSize(eta, 1.4);
   display: block;
   width: 100%;
   counter-reset: item;
@@ -27,23 +27,29 @@
 .rte form {
   display: block;
   width: 100%;
-  margin: 0;
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
   &:last-child {
     margin-bottom: 0;
   }
   &:not(.rte__pull) {
     & + * {
-      margin-top: 10px;
+      margin-top: 20px;
     }
+  }
+  &:not(.rte__pullup) {
+		margin-bottom: 0;
   }
 }
 
 .rte a {
-  @include fontSize(gamma, 1);
+  //@include fontSize(gamma, 1);
   color: $color_darkgrey;
 }
 
 .rte p {
+	text-align: center;
   a {
     display: inline;
     text-transform: none;
@@ -126,6 +132,12 @@
 	}
 }
 
+.rte__pullup {
+	position: relative;
+	top: -90px;
+	margin-bottom: -90px;
+}
+
 //--- MODIFIERS ----------------------------------------------------------//
 
 .rte--center {
@@ -156,15 +168,29 @@
 	.rte--narrow {
 		width: 100%;
 	}
+	.rte__pullup {
+		top: -30px;
+		margin-bottom: -30px;
+	}
 }
 
 @include mediaQueries('small') {
+	.rte img {
+		width: auto;
+		margin-left: auto;
+		margin-right: auto;
+	}
 	.rte--narrow {
 		width: 100%;
 	}
 }
 
 @include mediaQueries('medium') {
+	.rte img {
+		width: auto;
+		margin-left: auto;
+		margin-right: auto;
+	}
 	.rte--narrow {
 		width: 80%;
 	}

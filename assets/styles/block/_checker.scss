@@ -102,6 +102,7 @@ $checkerBoxHeight: 48px;
   //@include fontSize(alpha, 0);
 	font-size: inherit;
   padding-left: $checkerBoxWidth + 30px;
+	line-height: 100%; // Line-height is the same as inherited font-size
   //height: $checkerBoxHeight;
   //line-height: $checkerBoxHeight;
   //white-space: nowrap;
@@ -111,7 +112,8 @@ $checkerBoxHeight: 48px;
 }
 
 
-
 .checker--light {
-
+	.checker__ui {
+		background-color: $color_white;
+	}
 }

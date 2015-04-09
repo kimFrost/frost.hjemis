@@ -1,5 +1,5 @@
 
-
+// 20, 50, 100, 150, 200
 
 .spacer {
 	display: block;
@@ -31,4 +31,21 @@
 		width: 100%;
 		background-color: $color_white;
 	}
+}
+
+
+.spacer--50 {
+	margin-bottom: 49px;
+}
+
+.spacer--100 {
+	margin-bottom: 99px;
+}
+
+.spacer--150 {
+	margin-bottom: 149px;
+}
+
+.spacer--200 {
+	margin-bottom: 199px;
 }

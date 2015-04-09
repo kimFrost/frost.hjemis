@@ -10,6 +10,7 @@
 	height: 100%;
 	background-color: $param_main-background;
 	color: $param_main-font-color;
+	font-family: $param_main-font;
 
 	// Make all ng-click have a pointer cursor
 	[data-ng-click],
@@ -33,7 +34,7 @@
 .hjemis__header {
 	display: block;
 	width: 100%;
-	height: 110px;
+	height: 120px;
 	position: relative;
 }
 
@@ -50,14 +51,17 @@
 	background-image: url($url);
 	background-repeat: no-repeat;
 	background-size: contain;
-	background-position: 50% 50%;
+	background-position: 50% 0;
 	z-index: 60;
 }
 
 .hjemis__headerlink {
+	@include fontSize(zeta, 1);
 	position: absolute;
 	right: 0;
-	top: calc(50% - 20px);
+	color: $color_white;
+	top: calc(50% - #{returnFontSize(zeta)});
+	font-weight: 700;
 }
 
 
@@ -67,7 +71,19 @@
 //--- MEDIA QUERRIES ----------------------------------------------------------//
 
 @include mediaQueries('x-small') {
-
+	.hjemis__logo {
+		//width: 40%;
+		//left: 30%;
+		height: 100%;
+		top: -10%;
+	}
+	.hjemis__header {
+		height: 85px;
+	}
+	.hjemis__headerlink {
+		@include fontSize(gamma, 1);
+		top: calc(50% - #{returnFontSize(gamma)});
+	}
 }
 
 @include mediaQueries('small') {
