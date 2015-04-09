@@ -1,4 +1,11 @@
 /* Sprite Setup */
+@font-face {
+  font-family: 'sentinelblack';
+  src: url("../fonts/Sentinel-Black-webfont.eot");
+  src: url("../fonts/Sentinel-Black-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Sentinel-Black-webfont.woff2") format("woff2"), url("../fonts/Sentinel-Black-webfont.woff") format("woff"), url("../fonts/Sentinel-Black-webfont.ttf") format("truetype"), url("../fonts/Sentinel-Black-webfont.svg#sentinelblack") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
 /* Global mediaQueries mixin */
 /* Global Variables */
 /* COLORS */
@@ -1808,6 +1815,7 @@ html {
 }
 /* line 15, ../assets/styles/block/_organizer.scss */
 .organizer h1 {
+  font-family: "sentinelblack", "Myriad Pro", "Arial", Sans-serif;
   text-transform: uppercase;
 }
 /* line 42, ../assets/styles/global/_global_fonts.scss */
@@ -1817,33 +1825,33 @@ html {
   line-height: 12px;
   line-height: 0.6666666667rem;
 }
-/* line 19, ../assets/styles/block/_organizer.scss */
+/* line 20, ../assets/styles/block/_organizer.scss */
 .organizer table {
   width: 100%;
   margin: 0;
   padding: 0;
   border: none;
 }
-/* line 25, ../assets/styles/block/_organizer.scss */
+/* line 26, ../assets/styles/block/_organizer.scss */
 .organizer td {
   padding: 0;
   vertical-align: top;
   border: none;
 }
-/* line 30, ../assets/styles/block/_organizer.scss */
+/* line 31, ../assets/styles/block/_organizer.scss */
 .organizer ul {
   display: block;
   margin: 0;
   padding: 0;
 }
-/* line 35, ../assets/styles/block/_organizer.scss */
+/* line 36, ../assets/styles/block/_organizer.scss */
 .organizer li {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* line 42, ../assets/styles/block/_organizer.scss */
+/* line 43, ../assets/styles/block/_organizer.scss */
 .organizer {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
