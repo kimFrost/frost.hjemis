@@ -82,19 +82,29 @@ html {
   line-height: 1.1111111111rem;
 }
 
+/* line 67, ../assets/styles/block/_hjemis.scss */
+.hjemis__intro {
+  width: 100%;
+  padding-bottom: 55.3941908714%;
+  background-image: url("../images/hjemis_intro.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50% 0;
+}
+
 @media all and (min-width: 1px) and (max-width: 569px) {
-  /* line 74, ../assets/styles/block/_hjemis.scss */
+  /* line 86, ../assets/styles/block/_hjemis.scss */
   .hjemis__logo {
     height: 100%;
     top: -10%;
   }
 
-  /* line 80, ../assets/styles/block/_hjemis.scss */
+  /* line 92, ../assets/styles/block/_hjemis.scss */
   .hjemis__header {
     height: 85px;
   }
 
-  /* line 83, ../assets/styles/block/_hjemis.scss */
+  /* line 95, ../assets/styles/block/_hjemis.scss */
   .hjemis__headerlink {
     top: calc(50% - 14px);
   }
@@ -104,6 +114,12 @@ html {
     font-size: 0.7777777778rem;
     line-height: 14px;
     line-height: 0.7777777778rem;
+  }
+
+  /* line 99, ../assets/styles/block/_hjemis.scss */
+  .hjemis__intro {
+    padding-bottom: 60%;
+    background-image: url("../images/hjemis_intro-mobile.png");
   }
 }
 /* line 8, ../assets/styles/block/_container.scss */
@@ -1012,6 +1028,7 @@ html {
   display: block;
   position: relative;
   width: 100%;
+  min-width: 300px;
   padding: 18px 16px;
   margin: 0 auto;
   background-color: #c0bebc;
@@ -1034,23 +1051,23 @@ html {
   line-height: 1.3333333333rem;
 }
 
-/* line 73, ../assets/styles/block/_form.scss */
+/* line 74, ../assets/styles/block/_form.scss */
 .form__label {
   display: block;
   width: 100%;
 }
 
-/* line 78, ../assets/styles/block/_form.scss */
+/* line 79, ../assets/styles/block/_form.scss */
 .form__input {
   -moz-appearance: textfield;
 }
-/* line 81, ../assets/styles/block/_form.scss */
+/* line 82, ../assets/styles/block/_form.scss */
 .form__input[type=number]::-webkit-inner-spin-button, .form__input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-/* line 88, ../assets/styles/block/_form.scss */
+/* line 89, ../assets/styles/block/_form.scss */
 .form__textarea {
   min-height: 350px;
 }
@@ -1062,7 +1079,7 @@ html {
   line-height: 1.6rem;
 }
 
-/* line 104, ../assets/styles/block/_form.scss */
+/* line 105, ../assets/styles/block/_form.scss */
 .form__msg {
   -moz-transform: translate(0, 3px);
   -ms-transform: translate(0, 3px);
@@ -1082,21 +1099,21 @@ html {
   line-height: 0.6666666667rem;
 }
 
-/* line 114, ../assets/styles/block/_form.scss */
+/* line 115, ../assets/styles/block/_form.scss */
 .form__upload {
   padding-top: 4px;
   padding-bottom: 8px;
 }
-/* line 118, ../assets/styles/block/_form.scss */
+/* line 119, ../assets/styles/block/_form.scss */
 .form__upload > label {
   display: inline-block;
   vertical-align: sub;
 }
-/* line 121, ../assets/styles/block/_form.scss */
+/* line 122, ../assets/styles/block/_form.scss */
 .form__upload > label + img {
   margin-left: 20px;
 }
-/* line 125, ../assets/styles/block/_form.scss */
+/* line 126, ../assets/styles/block/_form.scss */
 .form__upload > input[type="file"] {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -1107,13 +1124,13 @@ html {
   height: 100%;
   opacity: 0;
 }
-/* line 134, ../assets/styles/block/_form.scss */
+/* line 135, ../assets/styles/block/_form.scss */
 .form__upload > img {
   display: inline-block;
   margin: 0;
 }
 
-/* line 140, ../assets/styles/block/_form.scss */
+/* line 141, ../assets/styles/block/_form.scss */
 .form__line {
   display: block;
   position: relative;
@@ -1121,7 +1138,7 @@ html {
   clear: both;
 }
 
-/* line 155, ../assets/styles/block/_form.scss */
+/* line 156, ../assets/styles/block/_form.scss */
 .form__input + *,
 .form__textarea + *,
 .form__button + *,
@@ -1131,24 +1148,24 @@ html {
   margin-top: 20px;
 }
 
-/* line 163, ../assets/styles/block/_form.scss */
+/* line 164, ../assets/styles/block/_form.scss */
 .form--light .form__input, .form--light .form__textarea, .form--light .form__select {
   background-color: #ffffff;
 }
 
-/* line 168, ../assets/styles/block/_form.scss */
+/* line 169, ../assets/styles/block/_form.scss */
 .form__button--submit {
   background-color: #add8ee;
   color: #ffffff;
 }
 
-/* line 175, ../assets/styles/block/_form.scss */
+/* line 176, ../assets/styles/block/_form.scss */
 .form__line--2:after {
   content: "";
   display: block;
   clear: both;
 }
-/* line 180, ../assets/styles/block/_form.scss */
+/* line 181, ../assets/styles/block/_form.scss */
 .form__line--2 .form__input, .form__line--2 .form__textarea, .form__line--2 .form__select,
 .form__line--2 .form__button,
 .form__line--2 .form__upload {
@@ -1156,7 +1173,7 @@ html {
   margin-right: 20px;
   float: left;
 }
-/* line 185, ../assets/styles/block/_form.scss */
+/* line 186, ../assets/styles/block/_form.scss */
 .form__line--2 .form__input + .form__input, .form__line--2 .form__textarea + .form__input, .form__line--2 .form__select + .form__input,
 .form__line--2 .form__button + .form__input,
 .form__line--2 .form__upload + .form__input {
@@ -1165,7 +1182,7 @@ html {
   margin-left: 20px;
 }
 
-/* line 193, ../assets/styles/block/_form.scss */
+/* line 194, ../assets/styles/block/_form.scss */
 .form__line--narrow {
   width: 40%;
   margin-left: auto;
@@ -1173,12 +1190,12 @@ html {
 }
 
 @media all and (min-width: 1px) and (max-width: 569px) {
-  /* line 204, ../assets/styles/block/_form.scss */
+  /* line 205, ../assets/styles/block/_form.scss */
   .form__line--narrow {
     width: 80%;
   }
 
-  /* line 208, ../assets/styles/block/_form.scss */
+  /* line 209, ../assets/styles/block/_form.scss */
   .form__line--2 .form__input, .form__line--2 .form__textarea, .form__line--2 .form__select,
   .form__line--2 .form__button,
   .form__line--2 .form__upload {
@@ -1186,7 +1203,7 @@ html {
     width: 100%;
     float: none;
   }
-  /* line 213, ../assets/styles/block/_form.scss */
+  /* line 214, ../assets/styles/block/_form.scss */
   .form__line--2 .form__input + .form__input, .form__line--2 .form__textarea + .form__input, .form__line--2 .form__select + .form__input,
   .form__line--2 .form__button + .form__input,
   .form__line--2 .form__upload + .form__input {

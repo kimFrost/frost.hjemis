@@ -53,6 +53,7 @@ $element-spacing: 20px;
   display: block;
 	position: relative;
   width: 100%;
+	min-width: 300px;
 	padding: 18px 16px;
 	margin: 0 auto;
   background-color: $param_form-button-background;

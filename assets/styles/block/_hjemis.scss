@@ -64,6 +64,18 @@
 	font-weight: 700;
 }
 
+.hjemis__intro {
+	$url: '../images/hjemis_intro.png';
+	$width: image-width($url);
+	$height: image-height($url);
+	$ratio: $width / $height;
+	width: 100%;
+	padding-bottom: (100% / $ratio * 1);
+	background-image: url($url);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: 50% 0;
+}
 
 //--- MODIFIERS ----------------------------------------------------------//
 
@@ -83,6 +95,14 @@
 	.hjemis__headerlink {
 		@include fontSize(gamma, 1);
 		top: calc(50% - #{returnFontSize(gamma)});
+	}
+	.hjemis__intro {
+		$url: '../images/hjemis_intro-mobile.png';
+		$width: image-width($url);
+		$height: image-height($url);
+		$ratio: $width / $height;
+		padding-bottom: (100% / $ratio * 1);
+		background-image: url($url);
 	}
 }
 
