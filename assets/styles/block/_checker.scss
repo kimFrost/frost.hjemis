@@ -46,6 +46,7 @@ $checkerBoxHeight: 48px;
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
+		opacity: 0;
     &.ng-dirty {
       &.ng-invalid {
         & + .checker__ui,

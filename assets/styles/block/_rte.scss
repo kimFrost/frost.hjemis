@@ -26,13 +26,18 @@
 .rte div,
 .rte form {
   display: block;
-  width: 100%;
-	margin-left: 0;
-	margin-right: 0;
+
+	//margin-left: 0;
+	//margin-right: 0;
+	margin-left: auto;
+	margin-right: auto;
 	margin-top: 0;
   &:last-child {
     margin-bottom: 0;
   }
+	&:not(img) {
+		width: 100%;
+	}
 	&.rte__neverstrech {
 		width: auto;
 		margin-left: auto;
@@ -184,22 +189,26 @@
 }
 
 @include mediaQueries('small') {
+	/*
 	.rte img {
 		width: auto;
 		margin-left: auto;
 		margin-right: auto;
 	}
+	*/
 	.rte--narrow {
 		width: 100%;
 	}
 }
 
 @include mediaQueries('medium') {
+	/*
 	.rte img {
 		width: auto;
 		margin-left: auto;
 		margin-right: auto;
 	}
+	*/
 	.rte--narrow {
 		width: 80%;
 	}

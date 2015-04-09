@@ -1,0 +1,29 @@
+
+
+// PARAMETERS
+
+// BLOCK
+.fluid {
+
+}
+
+
+//--- ELEMENTS ----------------------------------------------------------//
+
+//--- MODIFIERS ----------------------------------------------------------//
+
+
+
+//--- MEDIA QUERRIES ----------------------------------------------------------//
+
+@include mediaQueries('x-small') {
+	.fluid--xs {
+		width: 100%;
+	}
+}
+
+@include mediaQueries('small') {
+	.fluid--s {
+		width: 100%;
+	}
+}
