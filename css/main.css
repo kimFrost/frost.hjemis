@@ -230,10 +230,17 @@ html {
 }
 
 /* line 143, ../assets/styles/block/_container.scss */
+.container__inner--narrow {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 149, ../assets/styles/block/_container.scss */
 .container--skyblue {
   background-color: #add8ee;
 }
-/* line 145, ../assets/styles/block/_container.scss */
+/* line 151, ../assets/styles/block/_container.scss */
 .container--skyblue::before, .container--skyblue::after {
   display: block;
   content: "";
@@ -244,24 +251,25 @@ html {
   background-image: url("../images/stribes2-right.png");
   background-size: cover;
 }
-/* line 156, ../assets/styles/block/_container.scss */
+/* line 162, ../assets/styles/block/_container.scss */
 .container--skyblue::before {
-  -moz-transform: rotate3d(0, 1, 0, 180deg);
-  -webkit-transform: rotate3d(0, 1, 0, 180deg);
-  transform: rotate3d(0, 1, 0, 180deg);
+  -moz-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  transform: scale(-1, 1);
   left: 0;
 }
-/* line 160, ../assets/styles/block/_container.scss */
+/* line 167, ../assets/styles/block/_container.scss */
 .container--skyblue::after {
   right: 0;
 }
 
-/* line 165, ../assets/styles/block/_container.scss */
+/* line 172, ../assets/styles/block/_container.scss */
 .container--deepsea {
   background-color: #10223e;
   color: #ffffff;
 }
-/* line 168, ../assets/styles/block/_container.scss */
+/* line 175, ../assets/styles/block/_container.scss */
 .container--deepsea::before, .container--deepsea::after {
   display: block;
   content: "";
@@ -272,119 +280,125 @@ html {
   background-image: url("../images/stribes-right.png");
   background-size: cover;
 }
-/* line 179, ../assets/styles/block/_container.scss */
+/* line 186, ../assets/styles/block/_container.scss */
 .container--deepsea::before {
-  -moz-transform: rotate3d(0, 1, 0, 180deg);
-  -webkit-transform: rotate3d(0, 1, 0, 180deg);
-  transform: rotate3d(0, 1, 0, 180deg);
+  -moz-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  transform: scale(-1, 1);
   left: 0;
 }
-/* line 183, ../assets/styles/block/_container.scss */
+/* line 191, ../assets/styles/block/_container.scss */
 .container--deepsea::after {
   right: 0;
 }
 
-/* line 188, ../assets/styles/block/_container.scss */
+/* line 196, ../assets/styles/block/_container.scss */
 .container--lightgrey {
   background-color: #ededed;
 }
 
 @media all and (min-width: 1px) and (max-width: 569px) {
-  /* line 196, ../assets/styles/block/_container.scss */
+  /* line 204, ../assets/styles/block/_container.scss */
   .container {
     padding-right: 15px;
     padding-left: 15px;
   }
-  /* line 201, ../assets/styles/block/_container.scss */
+  /* line 209, ../assets/styles/block/_container.scss */
   .container:not(.container--ridge):not(.container--ridgetop) {
     padding-top: 40px;
   }
-  /* line 204, ../assets/styles/block/_container.scss */
+  /* line 212, ../assets/styles/block/_container.scss */
   .container:not(.container--ridge):not(.container--ridgebottom) {
     padding-bottom: 40px;
   }
 
-  /* line 216, ../assets/styles/block/_container.scss */
+  /* line 224, ../assets/styles/block/_container.scss */
   .container__content {
     width: 100%;
   }
 
-  /* line 220, ../assets/styles/block/_container.scss */
+  /* line 228, ../assets/styles/block/_container.scss */
   .container__inner + .container__inner {
     margin-top: 15px;
   }
 
-  /* line 224, ../assets/styles/block/_container.scss */
+  /* line 232, ../assets/styles/block/_container.scss */
+  .container__inner--narrow {
+    width: 100%;
+  }
+
+  /* line 235, ../assets/styles/block/_container.scss */
   .container--xs-expand {
     padding-left: 0;
     padding-right: 0;
   }
-  /* line 227, ../assets/styles/block/_container.scss */
+  /* line 238, ../assets/styles/block/_container.scss */
   .container--xs-expand .container__content {
     width: 100%;
   }
 }
 @media all and (min-width: 570px) and (max-width: 1099px) {
-  /* line 234, ../assets/styles/block/_container.scss */
+  /* line 245, ../assets/styles/block/_container.scss */
   .container {
     padding-right: 30px;
     padding-left: 30px;
   }
 
-  /* line 244, ../assets/styles/block/_container.scss */
+  /* line 255, ../assets/styles/block/_container.scss */
   .container__content {
     width: 100%;
   }
 
-  /* line 248, ../assets/styles/block/_container.scss */
+  /* line 259, ../assets/styles/block/_container.scss */
   .container__inner + .container__inner {
     margin-top: 30px;
   }
 
-  /* line 252, ../assets/styles/block/_container.scss */
+  /* line 263, ../assets/styles/block/_container.scss */
   .container--s-expand {
     padding-left: 0;
     padding-right: 0;
   }
-  /* line 255, ../assets/styles/block/_container.scss */
+  /* line 266, ../assets/styles/block/_container.scss */
   .container--s-expand .container__content {
     width: 100%;
   }
 }
 @media all and (min-width: 1100px) {
-  /* line 262, ../assets/styles/block/_container.scss */
+  /* line 273, ../assets/styles/block/_container.scss */
   .container {
     padding-right: 50px;
     padding-left: 50px;
   }
 
-  /* line 272, ../assets/styles/block/_container.scss */
+  /* line 283, ../assets/styles/block/_container.scss */
   .container__content {
     width: 960px;
   }
 
-  /* line 276, ../assets/styles/block/_container.scss */
+  /* line 287, ../assets/styles/block/_container.scss */
   .container__inner + .container__inner {
     margin-top: 50px;
   }
 
-  /* line 280, ../assets/styles/block/_container.scss */
+  /* line 291, ../assets/styles/block/_container.scss */
   .container--m-expand {
     padding-left: 0;
     padding-right: 0;
   }
-  /* line 283, ../assets/styles/block/_container.scss */
+  /* line 294, ../assets/styles/block/_container.scss */
   .container--m-expand .container__content {
     width: 100%;
   }
 }
 @media all and (min-width: 1px) {
-  /* line 346, ../assets/styles/block/_container.scss */
+  /* line 357, ../assets/styles/block/_container.scss */
   .container--expand {
     padding-left: 0;
     padding-right: 0;
   }
-  /* line 349, ../assets/styles/block/_container.scss */
+  /* line 360, ../assets/styles/block/_container.scss */
   .container--expand .container__content {
     width: 100%;
   }
@@ -1842,6 +1856,11 @@ html {
     display: none;
   }
 }
+/* line 17, ../assets/styles/block/_color.scss */
+.color--deepsea {
+  color: #10223e;
+}
+
 /* ==========================================================================
    HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
    ========================================================================== */

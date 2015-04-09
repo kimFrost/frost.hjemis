@@ -140,6 +140,12 @@
 	text-align: center;
 }
 
+.container__inner--narrow {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .container--skyblue {
 	background-color: $color_skyblue;
 	&::before,
@@ -154,7 +160,8 @@
 		background-size: cover;
 	}
 	&::before {
-		@include rotate3d(0, 1, 0, 180deg);
+		//@include rotate3d(0, 1, 0, 180deg);
+		@include scale(-1, 1);
 		left: 0;
 	}
 	&::after {
@@ -177,7 +184,8 @@
 		background-size: cover;
 	}
 	&::before {
-		@include rotate3d(0, 1, 0, 180deg);
+		//@include rotate3d(0, 1, 0, 180deg);
+		@include scale(-1, 1);
 		left: 0;
 	}
 	&::after {
@@ -220,6 +228,9 @@
 		& + & {
 			margin-top: $mq-gutterWidth;
 		}
+	}
+	.container__inner--narrow {
+		width: 100%;
 	}
 	.container--xs-expand {
 		padding-left: 0;
