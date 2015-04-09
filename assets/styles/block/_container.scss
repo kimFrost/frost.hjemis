@@ -19,11 +19,6 @@
   @include onlyInDebug() {
     background-color: red;
   }
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
 	&:last-of-type {
 		// Using type, cause script tag also count
 		//margin-bottom: ($mq-gutterWidth * 2);
@@ -147,11 +142,47 @@
 
 .container--skyblue {
 	background-color: $color_skyblue;
+	&::before,
+	&::after {
+		display: block;
+		content: "";
+		position: absolute;
+		top: 0;
+		height: 100%;
+		width: 40%;
+		background-image: url('../images/stribes2-right.png');
+		background-size: cover;
+	}
+	&::before {
+		@include rotate3d(0, 1, 0, 180deg);
+		left: 0;
+	}
+	&::after {
+		right: 0;
+	}
 }
 
 .container--deepsea {
 	background-color: $color_deepsea;
 	color: $color_white;
+	&::before,
+	&::after {
+		display: block;
+		content: "";
+		position: absolute;
+		top: 0;
+		height: 100%;
+		width: 40%;
+		background-image: url('../images/stribes-right.png');
+		background-size: cover;
+	}
+	&::before {
+		@include rotate3d(0, 1, 0, 180deg);
+		left: 0;
+	}
+	&::after {
+		right: 0;
+	}
 }
 
 .container--lightgrey {

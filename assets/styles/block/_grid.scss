@@ -93,7 +93,7 @@ $__gridSpacing: 10px;
 			@if $__newWidth > 100% {
 				$__newWidth: 100%;
 			}
-			width: $__newWidth;
+			//width: $__newWidth;
 		}
 		.grid-xs--#{$i} {
 			width: 100% / $__gridSize * $i;
@@ -110,7 +110,7 @@ $__gridSpacing: 10px;
 			@if $__newWidth > 100% {
 				$__newWidth: 100%;
 			}
-			width: $__newWidth;
+			//width: $__newWidth;
 		}
 		.grid-s--#{$i} {
 			width: 100% / $__gridSize * $i;

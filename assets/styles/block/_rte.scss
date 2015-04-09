@@ -33,6 +33,11 @@
   &:last-child {
     margin-bottom: 0;
   }
+	&.rte__neverstrech {
+		width: auto;
+		margin-left: auto;
+		margin-right: auto;
+	}
   &:not(.rte__pull) {
     & + * {
       margin-top: 20px;
@@ -161,6 +166,10 @@
 	line-height: 1;
 }
 
+.rte__pullup--hard {
+	top: -180px;
+	margin-bottom: -180px;
+}
 
 //--- MEDIA QUERRIES ----------------------------------------------------------//
 

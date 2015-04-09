@@ -1,0 +1,54 @@
+
+/* NOTES
+*	Very polluting module. Use with caution
+*/
+
+
+// PARAMETERS
+
+
+// BLOCK
+.organizer {
+	@include fontSize(alpha, 1.3);
+  display: block;
+  width: 100%;
+	h1 {
+		@include fontSize(beta, 1);
+		text-transform: uppercase;
+	}
+	table {
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		border: none;
+	}
+	td {
+		padding: 0;
+		vertical-align: top;
+		border: none;
+	}
+	ul {
+		display: block;
+		margin: 0;
+		padding: 0;
+	}
+	li {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+}
+
+.organizer {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+//--- ELEMENTS ----------------------------------------------------------//
+
+
+//--- MODIFIERS ----------------------------------------------------------//
+
+
+//--- MEDIA QUERRIES ----------------------------------------------------------//
