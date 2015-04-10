@@ -1920,6 +1920,28 @@ html {
     width: 100%;
   }
 }
+/* line 7, ../assets/styles/block/_map.scss */
+.map {
+  width: 100%;
+  padding-bottom: 60%;
+  position: relative;
+}
+/* line 11, ../assets/styles/block/_map.scss */
+.map > * {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 20, ../assets/styles/block/_map.scss */
+.map {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
 /* ==========================================================================
    HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
    ========================================================================== */
