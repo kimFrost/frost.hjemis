@@ -63,11 +63,11 @@
 			};
 
 			var markers = [];
-			for (i = 0; i < 1000; i++) {
+			for (i = 0; i < 500; i++) {
 				var marker = {
-					name: i,
-					lat: 50,
-					lon: 10
+					name: i.toString(),
+					lat: 56 - (Math.random() * 4 - 2),
+					lon: 10 - (Math.random() * 4 - 2)
 				};
 				markers.push(marker);
 			}
@@ -83,14 +83,18 @@
 
 				//map.css.width = this.width;
 				//map.css.height = this.height;
-
+				updateMarkers();
 
 			}.bind(this);
 
 			var updateMarkers = function() {
-
-
-
+				for (var i = 0; i < markers.length; i++) {
+					var m = markers[i];
+					var loc = new google.maps.LatLng(m.lat, m.lon);
+					var mm = new google.maps.Marker({ position: loc, map: map.map, title: m.name });
+					this.currentMarkers.push(mm);
+				}
+				var markerCluster = new MarkerClusterer(map.map, this.currentMarkers);
 			}.bind(this);
 
 
