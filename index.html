@@ -37,13 +37,16 @@
       </div>
     </section>
     <section class="container">
-      <div data-step="1" class="container__content">
+      <div data-ng-class="{'container__content--hide': !main.steps[0].states.active}" class="container__content">
         <div class="container__inner">
           <div class="rte">
             <p>De blå Hjem-IS biler er på vejene over hele landet.<br>Grib din mobiltelefon, tag et pletskud af Hjem-IS bilen og upload det her. Så er du med i konkurrencen om en Citroën C1 samt MBK og Raleigh cykler fra<br>Dania Bikes. Deltagelse er betinget af, at du tilmelder dig nyhedsbrevet.<br>Du kan deltage med et foto per mailadresse.</p>
           </div>
           <div class="spacer"></div>
-          <form class="form">
+          <form name="info" data-ng-submit="main.switchstep(1)" novalidate class="form">
+            <div data-ng-show="info.pending">Request pending...</div>
+            <div data-ng-show="info.success">Card successfully created</div>
+            <div data-ng-show="info.error">An error occurred</div>
             <div class="form__line form__line--narrow">
               <div class="form__upload">
                 <label>Upload foto</label><img src="/images/icon-camera.png">
@@ -51,10 +54,10 @@
               </div>
             </div>
             <div class="spacer"></div>
-            <input type="text" placeholder="Fornavn" class="form__input">
-            <input type="text" placeholder="Efternavn" class="form__input">
-            <input type="email" placeholder="E-mail" class="form__input">
-            <input type="number" placeholder="Tlf." class="form__input">
+            <input type="text" placeholder="Fornavn" data-ng-model="info.firstname" required class="form__input">
+            <input type="text" placeholder="Efternavn" data-ng-model="info.lastname" required class="form__input">
+            <input type="email" placeholder="E-mail" data-ng-model="info.email" required class="form__input">
+            <input type="number" placeholder="Tlf." data-ng-model="info.phone" required class="form__input">
             <div class="checker">
               <div class="checker__box">
                 <input type="checkbox">
@@ -70,8 +73,8 @@
           </form>
         </div>
       </div>
-      <div data-step="2" class="container__content"></div>
-      <div data-step="3" class="container__content"></div>
+      <div data-ng-class="{'container__content--hide': !main.steps[1].states.active}" class="container__content">1</div>
+      <div data-ng-class="{'container__content--hide': !main.steps[2].states.active}" class="container__content">2</div>
     </section>
     <!--section.container
     div.container__content

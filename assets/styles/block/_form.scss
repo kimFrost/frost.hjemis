@@ -40,9 +40,9 @@ $element-spacing: 20px;
   outline: none;
 	border: none;
   font-family: inherit;
-  &.ng-invalid-required {
+  &.ng-invalid {
     &.ng-dirty {
-      border: 1px solid red;
+      outline: 1px solid red;
     }
   }
 }

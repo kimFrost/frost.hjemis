@@ -33,3 +33,15 @@
 
 //--- MEDIA QUERRIES ----------------------------------------------------------//
 
+
+@include mediaQueries('x-small') {
+	.map {
+		padding-bottom: 120%;
+	}
+}
+
+@include mediaQueries('small') {
+	.map {
+		//padding-bottom: 80%;
+	}
+}

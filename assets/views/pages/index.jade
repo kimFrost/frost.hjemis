@@ -8,7 +8,7 @@ block append body
 block append content
 
 	section.container
-		div.container__content(data-step="1")
+		div.container__content(data-ng-class="{'container__content--hide': !main.steps[0].states.active}")
 			div.container__inner
 				div.rte
 					p
@@ -20,17 +20,22 @@ block append content
 						br
 						| Du kan deltage med et foto per mailadresse.
 				div.spacer
-				form.form
+				form.form(name="info", data-ng-submit="main.switchstep(1)", novalidate)
+
+					div(data-ng-show="info.pending") Request pending...
+					div(data-ng-show="info.success") Card successfully created
+					div(data-ng-show="info.error") An error occurred
+
 					div.form__line.form__line--narrow
 						div.form__upload
 							label Upload foto
 							img(src="/images/icon-camera.png")
 							input(type="file", value="Upload foto")
 					div.spacer
-					input.form__input(type="text", placeholder="Fornavn")
-					input.form__input(type="text", placeholder="Efternavn")
-					input.form__input(type="email", placeholder="E-mail")
-					input.form__input(type="number", placeholder="Tlf.")
+					input.form__input(type="text", placeholder="Fornavn", data-ng-model="info.firstname", required)
+					input.form__input(type="text", placeholder="Efternavn", data-ng-model="info.lastname", required)
+					input.form__input(type="email", placeholder="E-mail", data-ng-model="info.email", required)
+					input.form__input(type="number", placeholder="Tlf.", data-ng-model="info.phone", required)
 					div.checker
 						div.checker__box
 							input(type="checkbox")
@@ -44,8 +49,8 @@ block append content
 					div.form__line.form__line--narrow
 						input.form__button.form__button--submit(type="submit", value="Deltag")
 					div.spacer.spacer--100
-		div.container__content(data-step="2")
-		div.container__content(data-step="3")
+		div.container__content(data-ng-class="{'container__content--hide': !main.steps[1].states.active}") 1
+		div.container__content(data-ng-class="{'container__content--hide': !main.steps[2].states.active}") 2
 
 	//section.container
 		div.container__content
