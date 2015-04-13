@@ -13,7 +13,7 @@
 				width: '@width',
 				height: '@height'
 			},
-			template: '<div>Google Map</div>',
+			template: '<div></div>',
 			restrict: 'A',
 			controller: controller,
 			controllerAs: 'map',
@@ -33,6 +33,8 @@
 			map.width = '200';
 			map.height = '200';
 			map.map = null;
+			map.overlay  = null;
+			map.infowindow = null;
 			map.currentMarkers = [];
 			//map.css = {};
 			map.states = {
@@ -64,16 +66,36 @@
 
 			var markers = [];
 			for (i = 0; i < 500; i++) {
+				var image = {
+					url: 'http://placehold.it/50x40',
+					width: 50,
+					height: 40
+				};
+				/*
+				image = {
+					url: 'images/icon-checked.png',
+					// This marker is 20 pixels wide by 32 pixels tall.
+					size: new google.maps.Size(20, 32),
+					// The origin for this image is 0,0.
+					origin: new google.maps.Point(0,0),
+					// The anchor for this image is the base of the flagpole at 0,32.
+					anchor: new google.maps.Point(0, 32)
+				};
+				*/
 				var marker = {
 					name: i.toString(),
 					lat: 56 - (Math.random() * 4 - 2),
-					lon: 10 - (Math.random() * 4 - 2)
+					lon: 10 - (Math.random() * 4 - 2),
+					icon: image
 				};
+
 				markers.push(marker);
 			}
 
 			// create the map
 			map.map = new google.maps.Map($element[0], options);
+			map.infowindow = new google.maps.InfoWindow();
+			map.overlay  = new google.maps.OverlayView();
 
 			// Update Map Parameters
 			var updateControl = function() {
@@ -91,10 +113,55 @@
 				for (var i = 0; i < markers.length; i++) {
 					var m = markers[i];
 					var loc = new google.maps.LatLng(m.lat, m.lon);
-					var mm = new google.maps.Marker({ position: loc, map: map.map, title: m.name });
+					var mm = new google.maps.Marker({
+						position: loc,
+						map: map.map,
+						title: m.name,
+						icon: m.icon,
+						image: 'http://placehold.it/400x300',
+						customInfo: 'asdasdasdasdasd'
+					});
+
+					google.maps.event.addListener(mm , 'click', function() {
+						//console.log('marker clicked', this);
+						var imageUrl = this.image;
+						var content = '<a href="' + imageUrl + '" target="_blank"><img src="' + imageUrl + '" /></a>';
+						map.infowindow.setContent(content);
+						map.infowindow.open(map.map, this);
+					});
+
 					this.currentMarkers.push(mm);
 				}
-				var markerCluster = new MarkerClusterer(map.map, this.currentMarkers);
+
+				var clusterStyles = [
+					{
+						textColor: 'white',
+						url: 'images/icon-marker.png',
+						height: 44,
+						width: 44
+					}/*,
+					{
+						textColor: 'purple',
+						url: 'http://placehold.it/50x50',
+						height: 50,
+						width: 50
+					},
+					{
+						textColor: 'red',
+						url: 'http://placehold.it/50x50',
+						height: 50,
+						width: 50
+					}*/
+				];
+
+				var clusterOptions = {
+					gridSize: 50,
+					styles: clusterStyles,
+					maxZoom: 15
+				};
+
+				var markerCluster = new MarkerClusterer(map.map, this.currentMarkers, clusterOptions);
+
 			}.bind(this);
 
 
