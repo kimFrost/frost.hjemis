@@ -10,7 +10,7 @@
  * Main module of the application.
  */
 angular
-  .module('noerd.Hjemis.Web', ['ngSanitize', 'ngCookies', 'ngHtmlCompile'])
+  .module('noerd.Hjemis.Web', ['ngSanitize', 'ngCookies', 'ngHtmlCompile', 'angularFileUpload'])
         /*.config(['$locationProvider', function ($locationProvider) {
             $locationProvider.html5Mode(false).hashPrefix('!');
         }])*/

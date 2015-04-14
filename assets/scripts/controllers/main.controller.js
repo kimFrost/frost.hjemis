@@ -17,9 +17,6 @@
 	/* @ngInject */
 	function MainCtrl($rootScope, $scope, $location, $cookies, $timeout, $http, $sce) {
 
-		$scope.acceptCookies = acceptCookies;
-		$scope.cookiesAccepted = cookiesAccepted;
-
 		var main = this;
 		main.options = {
 			debug: true
@@ -31,7 +28,7 @@
 				require: [],
 				states: {
 					active: true,
-					valid: false,
+					valid: true,
 					locked: false,
 					initialized: false
 				}
@@ -41,11 +38,11 @@
 				name: "Step 2",
 				require: [0],
 				states: {
-					active: false,
+					active: true,
 					valid: false,
 					locked: true,
-					showchoice: false,
-					initialized: false
+					initialized: false,
+					showchoice: false
 				}
 			},
 			{
@@ -56,13 +53,13 @@
 					active: false,
 					valid: false,
 					locked: true,
-					showchoice: false,
 					initialized: false,
-					showchoiceBasket: true,
-					showchoiceFiles: false
+					showchoice: false
 				}
 			}
 		];
+		main.geocoder = new google.maps.Geocoder();
+		main.searchResults = [];
 		main.states = {
 			pending: false,
 			success: false,
@@ -71,8 +68,16 @@
 		};
 
 
+		$scope.acceptCookies = acceptCookies;
+		$scope.cookiesAccepted = cookiesAccepted;
+
+
+		// Public functions
 		main.postForm = postForm;
+		main.postXtraForm = postXtraForm;
+		main.validateForm = validateForm;
 		main.switchstep = switchstep;
+		main.getCoordinates = getCoordinates;
 
 
 
@@ -92,17 +97,21 @@
 			return getStates(id).valid;
 		}
 
-		function switchstep(id) {
+		function switchstep(id, force) {
+			force = (force === undefined) ? false : force;
 			log('switchStep', id);
 			if (id !== undefined) {
 				updateLocks(); // Update lock states
 				var locked = checklock(id);
-				if (!locked) {
+				if (!locked || force) {
 					for (var i = 0; i< main.steps.length; i++) {
 						var step = main.steps[i];
 						if (step.id === id && !step.states.initialized) {
 							step.states.initialized = true;
 							step.states.active = true;
+						}
+						else if (step.id !== id) {
+							step.states.active = false;
 						}
 					}
 				}
@@ -134,35 +143,96 @@
 
 
 		// Form functions
-		function postForm(formdata, id, callback) {
-			log('data', formdata);
-			formdata.pending = true;
-			formdata.success = false;
-			formdata.error = false;
+		function validateForm(formData) {
+			var valid = false;
+			// Make it dirty
+			if (formData.$error.required !== undefined) {
+				for (var i = 0; i < formData.$error.required.length; i++) {
+					var required = formData.$error.required[i];
+					required.$setViewValue(required.$viewValue);
+					required.$setDirty();
+				}
+			}
+			// Is it valid
+			if (formData.$valid) {
+				valid = formData.$valid;
+			}
+			return valid;
+		}
+		function resetForm(formData) {
+			formData = {}; // Not really the way to do it. Loop through the field instead, and reset the values
+			formData.$setPristine();
+		}
+		function postForm(formData, id, callback) {
+			log('data', formData);
+			formData.pending = true;
+			formData.success = false;
+			formData.error = false;
 
 			var req = {
 				method: 'POST',
-				url: '/api/addcard',
-				data: formdata
+				url: '/api/postform',
+				data: formData
 			};
 
 			$http(req)
 				.success(function (data, status, headers, config) {
 					log('success', data);
 					log('status', status);
-					formdata.pending = false;
-					formdata.success = true;
-					formdata.error = false;
+					formData.pending = false;
+					formData.success = true;
+					formData.error = false;
 					//callback();
 				})
 				.error(function (data, status, headers, config) {
 					log('error', data);
 					log('status', status);
-					formdata.pending = false;
-					formdata.success = false;
-					formdata.error = true;
+					formData.pending = false;
+					formData.success = false;
+					formData.error = true;
 					//callback();
 				});
+		}
+		function postXtraForm(formData) {
+			log('data', formData);
+			formData.pending = true;
+			formData.success = false;
+			formData.error = false;
+
+		}
+
+
+		// Coordinates functions
+		function getCoordinates(address, promise) {
+			if (address !== undefined && main.geocoder !== undefined && main.geocoder !== null) {
+				var coords = {};
+
+				main.geocoder.geocode({'address': address}, function(results, status) {
+					if (status == google.maps.GeocoderStatus.OK) {
+						log('results', results);
+						$scope.$apply(function() {
+							main.searchResults = results;
+						});
+
+						/*
+						if (results.length > 0) {
+							log('results', results);
+						}
+						if (promise !== undefined) {
+
+						}
+						*/
+					}
+					else {
+						log("Geocoder failed due to: " + status);
+						if (promise !== undefined) {
+
+						}
+					}
+				});
+
+
+			}
 		}
 
 

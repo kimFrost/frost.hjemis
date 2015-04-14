@@ -1128,14 +1128,19 @@ html {
   width: 100%;
   height: 100%;
   opacity: 0;
+  z-index: 10;
 }
-/* line 135, ../assets/styles/block/_form.scss */
+/* line 137, ../assets/styles/block/_form.scss */
+.form__upload > input[type="file"].ng-dirty.ng-invalid + .form__ui, .form__upload > input[type="file"].ng-dirty.ng-invalid ~ .form__ui {
+  outline: 1px solid red;
+}
+/* line 144, ../assets/styles/block/_form.scss */
 .form__upload > img {
   display: inline-block;
   margin: 0;
 }
 
-/* line 141, ../assets/styles/block/_form.scss */
+/* line 153, ../assets/styles/block/_form.scss */
 .form__line {
   display: block;
   position: relative;
@@ -1143,7 +1148,18 @@ html {
   clear: both;
 }
 
-/* line 156, ../assets/styles/block/_form.scss */
+/* line 160, ../assets/styles/block/_form.scss */
+.form__ui {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* line 178, ../assets/styles/block/_form.scss */
 .form__input + *,
 .form__textarea + *,
 .form__button + *,
@@ -1153,24 +1169,24 @@ html {
   margin-top: 20px;
 }
 
-/* line 164, ../assets/styles/block/_form.scss */
+/* line 186, ../assets/styles/block/_form.scss */
 .form--light .form__input, .form--light .form__textarea, .form--light .form__select {
   background-color: #ffffff;
 }
 
-/* line 169, ../assets/styles/block/_form.scss */
+/* line 191, ../assets/styles/block/_form.scss */
 .form__button--submit {
   background-color: #add8ee;
   color: #ffffff;
 }
 
-/* line 176, ../assets/styles/block/_form.scss */
+/* line 198, ../assets/styles/block/_form.scss */
 .form__line--2:after {
   content: "";
   display: block;
   clear: both;
 }
-/* line 181, ../assets/styles/block/_form.scss */
+/* line 203, ../assets/styles/block/_form.scss */
 .form__line--2 .form__input, .form__line--2 .form__textarea, .form__line--2 .form__select,
 .form__line--2 .form__button,
 .form__line--2 .form__upload {
@@ -1178,7 +1194,7 @@ html {
   margin-right: 20px;
   float: left;
 }
-/* line 186, ../assets/styles/block/_form.scss */
+/* line 208, ../assets/styles/block/_form.scss */
 .form__line--2 .form__input + .form__input, .form__line--2 .form__textarea + .form__input, .form__line--2 .form__select + .form__input,
 .form__line--2 .form__button + .form__input,
 .form__line--2 .form__upload + .form__input {
@@ -1187,7 +1203,7 @@ html {
   margin-left: 20px;
 }
 
-/* line 194, ../assets/styles/block/_form.scss */
+/* line 216, ../assets/styles/block/_form.scss */
 .form__line--narrow {
   width: 40%;
   margin-left: auto;
@@ -1195,12 +1211,12 @@ html {
 }
 
 @media all and (min-width: 1px) and (max-width: 569px) {
-  /* line 205, ../assets/styles/block/_form.scss */
+  /* line 227, ../assets/styles/block/_form.scss */
   .form__line--narrow {
     width: 80%;
   }
 
-  /* line 209, ../assets/styles/block/_form.scss */
+  /* line 231, ../assets/styles/block/_form.scss */
   .form__line--2 .form__input, .form__line--2 .form__textarea, .form__line--2 .form__select,
   .form__line--2 .form__button,
   .form__line--2 .form__upload {
@@ -1208,7 +1224,7 @@ html {
     width: 100%;
     float: none;
   }
-  /* line 214, ../assets/styles/block/_form.scss */
+  /* line 236, ../assets/styles/block/_form.scss */
   .form__line--2 .form__input + .form__input, .form__line--2 .form__textarea + .form__input, .form__line--2 .form__select + .form__input,
   .form__line--2 .form__button + .form__input,
   .form__line--2 .form__upload + .form__input {

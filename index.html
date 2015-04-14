@@ -12,6 +12,7 @@
     <script src="/assets/bower_components/angular/angular.js"></script>
     <script src="/assets/bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="/assets/bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="/assets/bower_components/ng-file-upload/angular-file-upload.js"></script>
     <script src="/assets/bower_components/ng-html-compile/src/ngHtmlCompile.js"></script>
     <!--script(src="/assets/bower_components/angular-google-maps/dist/angular-google-maps.min.js")-->
     <!--script(src="https://maps.googleapis.com/maps/api/js?client=AIzaSyCfcZycHugWScHI_6iW-8ZlM92fpJL3894&v=3.19")-->
@@ -37,44 +38,71 @@
       </div>
     </section>
     <section class="container">
-      <div data-ng-class="{'container__content--hide': !main.steps[0].states.active}" class="container__content">
-        <div class="container__inner">
-          <div class="rte">
-            <p>De blå Hjem-IS biler er på vejene over hele landet.<br>Grib din mobiltelefon, tag et pletskud af Hjem-IS bilen og upload det her. Så er du med i konkurrencen om en Citroën C1 samt MBK og Raleigh cykler fra<br>Dania Bikes. Deltagelse er betinget af, at du tilmelder dig nyhedsbrevet.<br>Du kan deltage med et foto per mailadresse.</p>
+      <form name="master" data-ng-submit="main.postForm(master)" novalidate>
+        <div data-ng-class="{'container__content--hide': !main.steps[0].states.active}" class="container__content">
+          <div class="container__inner">
+            <div class="rte">
+              <p>De blå Hjem-IS biler er på vejene over hele landet.<br>Grib din mobiltelefon, tag et pletskud af Hjem-IS bilen og upload det her. Så er du med i konkurrencen om en Citroën C1 samt MBK og Raleigh cykler fra<br>Dania Bikes. Deltagelse er betinget af, at du tilmelder dig nyhedsbrevet.<br>Du kan deltage med et foto per mailadresse.</p>
+            </div>
+            <div class="spacer"></div>
+            <!--div.form(data-ng-form="info", name="info", data-ng-submit="main.validateForm(info) && main.switchstep(1, true)", novalidate)-->
+            <div data-ng-form="info" name="info" novalidate class="form">
+              <div data-ng-show="info.pending">Request pending...</div>
+              <div data-ng-show="info.success">Card successfully created</div>
+              <div data-ng-show="info.error">An error occurred</div>
+              <div class="form__line form__line--narrow">
+                <div class="form__upload">
+                  <label>Upload foto</label><img src="/images/icon-camera.png">
+                  <input type="file" value="Upload foto" data-validfile accept="'image/*'" data-ng-model="info.image" required>
+                  <div class="form__ui"></div>
+                </div>
+              </div>
+              <div class="spacer"></div>
+              <input type="text" placeholder="Fornavn" data-ng-model="info.firstname" required class="form__input">
+              <input type="text" placeholder="Efternavn" data-ng-model="info.lastname" required class="form__input">
+              <input type="email" placeholder="E-mail" data-ng-model="info.email" required class="form__input">
+              <input type="number" placeholder="Tlf." data-ng-model="info.phone" required class="form__input">
+              <div class="checker">
+                <div class="checker__box">
+                  <input type="checkbox" data-ng-model="info.accept" required>
+                  <div class="checker__ui"></div>
+                </div>
+                <div class="checker__text"><b>JA TAK.</b> Jeg ønsker at deltage i konkurrencen samt modtage nyhedsbrev fra Hjem-IS med tilbud, nyheder mm.<br>(Bare rolig, hvis du allerede er tilmeldt får du ikke 2)</div>
+              </div>
+              <div class="spacer"></div>
+              <div class="form__line form__line--narrow">
+                <!--input.form__button.form__button--submit(type="submit", value="Submit", data-ng-disabled="info.pending")-->
+                <input type="button" value="Deltag" data-ng-click="main.validateForm(info) &amp;&amp; main.switchstep(1, true)" data-ng-disabled="info.pending" class="form__button form__button--submit">
+              </div>
+              <div class="spacer spacer--100"></div>
+            </div>
           </div>
-          <div class="spacer"></div>
-          <form name="info" data-ng-submit="main.switchstep(1)" novalidate class="form">
-            <div data-ng-show="info.pending">Request pending...</div>
-            <div data-ng-show="info.success">Card successfully created</div>
-            <div data-ng-show="info.error">An error occurred</div>
-            <div class="form__line form__line--narrow">
-              <div class="form__upload">
-                <label>Upload foto</label><img src="/images/icon-camera.png">
-                <input type="file" value="Upload foto">
-              </div>
-            </div>
-            <div class="spacer"></div>
-            <input type="text" placeholder="Fornavn" data-ng-model="info.firstname" required class="form__input">
-            <input type="text" placeholder="Efternavn" data-ng-model="info.lastname" required class="form__input">
-            <input type="email" placeholder="E-mail" data-ng-model="info.email" required class="form__input">
-            <input type="number" placeholder="Tlf." data-ng-model="info.phone" required class="form__input">
-            <div class="checker">
-              <div class="checker__box">
-                <input type="checkbox">
-                <div class="checker__ui"></div>
-              </div>
-              <div class="checker__text"><b>JA TAK.</b> Jeg ønsker at deltage i konkurrencen samt modtage nyhedsbrev fra Hjem-IS med tilbud, nyheder mm.<br>(Bare rolig, hvis du allerede er tilmeldt får du ikke 2)</div>
-            </div>
-            <div class="spacer"></div>
-            <div class="form__line form__line--narrow">
-              <input type="submit" value="Deltag" class="form__button form__button--submit">
-            </div>
-            <div class="spacer spacer--100"></div>
-          </form>
         </div>
-      </div>
-      <div data-ng-class="{'container__content--hide': !main.steps[1].states.active}" class="container__content">1</div>
-      <div data-ng-class="{'container__content--hide': !main.steps[2].states.active}" class="container__content">2</div>
+        <div data-ng-class="{'container__content--hide': !main.steps[1].states.active}" class="container__content">
+          <div class="container__inner">
+            <div data-ng-form="map" name="map" novalidate class="form">
+              <div class="rte">
+                <p>Hvor er dit foto taget? Placér dit foto på kortet ved at trække det eller indtast adressen i søgefeltet herunder.</p>
+              </div>
+              <div class="spacer"></div>
+              <input type="text" placeholder="Indtast adresse" data-ng-model="map.address" class="form__input">
+              <input type="button" value="Søg" data-ng-click="main.getCoordinates(map.address)" class="form__button">
+              <div data-ng-repeat="result in main.searchResults">
+                <div data-ng-click="map.coords = result.geometry.location; main.searchResults = [];">{{result.formatted_address}}</div>
+              </div>
+              <div class="spacer"></div>
+              <div class="map">
+                <div data-map data-type="picker" data-width="300">Map</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div data-ng-class="{'container__content--hide': !main.steps[2].states.active}" class="container__content">
+          <div class="container__inner">
+            <div class="rte">rte</div>
+          </div>
+        </div>
+      </form>
     </section>
     <!--section.container
     div.container__content
@@ -141,21 +169,21 @@
           </div>
         </div>
         <div class="container__inner">
-          <form class="form form--light">
-            <input type="text" placeholder="Fornavn" class="form__input">
-            <input type="text" placeholder="Efternavn" class="form__input">
-            <input type="email" placeholder="E-mail" class="form__input">
-            <input type="number" placeholder="Tlf." class="form__input">
+          <form name="xtra" data-ng-submit="main.validateForm(xtra) &amp;&amp; main.postXtraForm(xtra)" novalidate class="form form--light">
+            <input type="text" placeholder="Fornavn" data-ng-model="xtra.firstname" required class="form__input">
+            <input type="text" placeholder="Efternavn" data-ng-model="xtra.lastname" required class="form__input">
+            <input type="email" placeholder="E-mail" data-ng-model="xtra.email" required class="form__input">
+            <input type="number" placeholder="Tlf." data-ng-model="xtra.phone" required class="form__input">
             <div class="checker checker--light">
               <div class="checker__box">
-                <input type="checkbox">
+                <input type="checkbox" data-ng-model="xtra.accept" required>
                 <div class="checker__ui"></div>
               </div>
               <div class="checker__text"><b>JA TAK.</b> Jeg ønsker at deltage i konkurrencen samt modtage nyhedsbrev fra Hjem-IS med tilbud, nyheder mm.</div>
             </div>
             <div class="spacer spacer--50"></div>
             <div class="form__line form__line--narrow">
-              <input type="submit" value="Deltag" class="form__button form__button--submit">
+              <input type="submit" value="Deltag" data-ng-disabled="xtra.pending" class="form__button form__button--submit">
             </div>
           </form>
         </div>
@@ -297,5 +325,6 @@
     <script src="/assets/scripts/app.js"></script>
     <script src="/assets/scripts/controllers/main.controller.js"></script>
     <script src="/assets/scripts/directives/map.directive.js"></script>
+    <script src="/assets/scripts/directives/validfile.directive.js"></script>
   </body>
 </html>

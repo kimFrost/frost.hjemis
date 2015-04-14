@@ -12,6 +12,7 @@ html(data-ng-app="noerd.Hjemis.Web", lang="da")
 		script(src="/assets/bower_components/angular/angular.js")
 		script(src="/assets/bower_components/angular-sanitize/angular-sanitize.js")
 		script(src="/assets/bower_components/angular-cookies/angular-cookies.js")
+		script(src="/assets/bower_components/ng-file-upload/angular-file-upload.js")
 		script(src="/assets/bower_components/ng-html-compile/src/ngHtmlCompile.js")
 
 		//script(src="/assets/bower_components/angular-google-maps/dist/angular-google-maps.min.js")
@@ -100,21 +101,21 @@ html(data-ng-app="noerd.Hjemis.Web", lang="da")
 							br
 							b - 1 x Bio for 2, værdi 269,-
 				div.container__inner
-					form.form.form--light
-						input.form__input(type="text", placeholder="Fornavn")
-						input.form__input(type="text", placeholder="Efternavn")
-						input.form__input(type="email", placeholder="E-mail")
-						input.form__input(type="number", placeholder="Tlf.")
+					form.form.form--light(name="xtra", data-ng-submit="main.validateForm(xtra) && main.postXtraForm(xtra)", novalidate)
+						input.form__input(type="text", placeholder="Fornavn", data-ng-model="xtra.firstname", required)
+						input.form__input(type="text", placeholder="Efternavn", data-ng-model="xtra.lastname", required)
+						input.form__input(type="email", placeholder="E-mail", data-ng-model="xtra.email", required)
+						input.form__input(type="number", placeholder="Tlf.", data-ng-model="xtra.phone", required)
 						div.checker.checker--light
 							div.checker__box
-								input(type="checkbox")
+								input(type="checkbox", data-ng-model="xtra.accept", required)
 								div.checker__ui
 							div.checker__text
 								b JA TAK.
 								|  Jeg ønsker at deltage i konkurrencen samt modtage nyhedsbrev fra Hjem-IS med tilbud, nyheder mm.
 						div.spacer.spacer--50
 						div.form__line.form__line--narrow
-							input.form__button.form__button--submit(type="submit", value="Deltag")
+							input.form__button.form__button--submit(type="submit", value="Deltag", data-ng-disabled="xtra.pending")
 
 
 
@@ -262,3 +263,4 @@ html(data-ng-app="noerd.Hjemis.Web", lang="da")
 		script(src="/assets/scripts/app.js")
 		script(src="/assets/scripts/controllers/main.controller.js")
 		script(src="/assets/scripts/directives/map.directive.js")
+		script(src="/assets/scripts/directives/validfile.directive.js")
