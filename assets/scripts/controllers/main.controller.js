@@ -198,7 +198,6 @@
 			formData.pending = true;
 			formData.success = false;
 			formData.error = false;
-
 		}
 
 

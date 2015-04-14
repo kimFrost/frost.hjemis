@@ -80,19 +80,20 @@
         </div>
         <div data-ng-class="{'container__content--hide': !main.steps[1].states.active}" class="container__content">
           <div class="container__inner">
-            <div data-ng-form="map" name="map" novalidate class="form">
+            <div data-ng-form="mapform" name="mapform" novalidate class="form">
               <div class="rte">
                 <p>Hvor er dit foto taget? Placér dit foto på kortet ved at trække det eller indtast adressen i søgefeltet herunder.</p>
               </div>
               <div class="spacer"></div>
-              <input type="text" placeholder="Indtast adresse" data-ng-model="map.address" class="form__input">
-              <input type="button" value="Søg" data-ng-click="main.getCoordinates(map.address)" class="form__button">
+              <input type="text" placeholder="Indtast adresse" data-ng-model="mapform.address" class="form__input">
+              <input type="button" value="Søg" data-ng-click="main.getCoordinates(mapform.address)" class="form__button">
               <div data-ng-repeat="result in main.searchResults">
-                <div data-ng-click="map.coords = result.geometry.location; main.searchResults = [];">{{result.formatted_address}}</div>
+                <div data-ng-click="mapform.coords = result.geometry.location; main.searchResults = [];">{{result.formatted_address}}</div>
               </div>
+              <div>{{mapform.coords}}</div>
               <div class="spacer"></div>
               <div class="map">
-                <div data-map data-type="picker" data-width="300">Map</div>
+                <div data-map data-type="picker" data-coords="mapform.coords" data-width="300">Map</div>
               </div>
             </div>
           </div>

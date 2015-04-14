@@ -12,7 +12,8 @@
 			scope: {
 				width: '@width',
 				height: '@height',
-				type: '@type'
+				type: '@type',
+				coords: '@coords'
 			},
 			template: '<div></div>',
 			restrict: 'A',
@@ -61,6 +62,14 @@
 					}
 				}.bind(this));
 			}
+
+			$scope.$watch(function () {
+				return this.coords;
+			}.bind(this), function(newVal) {
+				if (newVal) {
+					console.log('newval', newVal);
+				}
+			}.bind(this));
 
 
 			/** FUNCTIONS */

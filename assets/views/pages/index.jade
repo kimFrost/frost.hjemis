@@ -57,18 +57,18 @@ block append content
 
 			div.container__content(data-ng-class="{'container__content--hide': !main.steps[1].states.active}")
 				div.container__inner
-					div.form(data-ng-form="map", name="map", novalidate)
+					div.form(data-ng-form="mapform", name="mapform", novalidate)
 						div.rte
 							p Hvor er dit foto taget? Placér dit foto på kortet ved at trække det eller indtast adressen i søgefeltet herunder.
 						div.spacer
-						input.form__input(type="text", placeholder="Indtast adresse", data-ng-model="map.address")
-						input.form__button(type="button", value="Søg", data-ng-click="main.getCoordinates(map.address)")
+						input.form__input(type="text", placeholder="Indtast adresse", data-ng-model="mapform.address")
+						input.form__button(type="button", value="Søg", data-ng-click="main.getCoordinates(mapform.address)")
 						div(data-ng-repeat="result in main.searchResults")
-							div(data-ng-click="map.coords = result.geometry.location; main.searchResults = [];") {{result.formatted_address}}
+							div(data-ng-click="mapform.coords = result.geometry.location; main.searchResults = [];") {{result.formatted_address}}
+						div {{mapform.coords}}
 						div.spacer
 						div.map
-							div(data-map, data-type="picker", data-width="300") Map
-
+							div(data-map, data-type="picker", data-coords="mapform.coords", data-width="300") Map
 
 
 			div.container__content(data-ng-class="{'container__content--hide': !main.steps[2].states.active}")
